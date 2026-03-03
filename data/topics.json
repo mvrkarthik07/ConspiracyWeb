@@ -1,0 +1,166 @@
+[
+  {
+    "slug": "national-reserves",
+    "name": "National Reserves",
+    "categorySlug": "government-finance",
+    "description": "Claims about reserves, GIC, Temasek.",
+    "coverImage": "/images/topics/national-reserves.svg",
+    "featuredTheoryIds": [
+      "1",
+      "18"
+    ]
+  },
+  {
+    "slug": "independence",
+    "name": "Independence",
+    "categorySlug": "history-sovereignty",
+    "description": "1965 separation and founding narratives.",
+    "coverImage": "/images/topics/independence.svg",
+    "featuredTheoryIds": [
+      "2"
+    ]
+  },
+  {
+    "slug": "cpf",
+    "name": "CPF",
+    "categorySlug": "government-finance",
+    "description": "Central Provident Fund and pension claims.",
+    "coverImage": "/images/topics/cpf.svg",
+    "featuredTheoryIds": [
+      "3"
+    ]
+  },
+  {
+    "slug": "population-policy",
+    "name": "Population Policy",
+    "categorySlug": "government-finance",
+    "description": "Immigration and population white paper.",
+    "coverImage": "/images/topics/population-policy.svg",
+    "featuredTheoryIds": [
+      "4"
+    ]
+  },
+  {
+    "slug": "covid-19-measures",
+    "name": "COVID-19 Measures",
+    "categorySlug": "technology-surveillance",
+    "description": "TraceTogether and pandemic response.",
+    "coverImage": "/images/topics/covid-19-measures.svg",
+    "featuredTheoryIds": [
+      "5"
+    ]
+  },
+  {
+    "slug": "elections",
+    "name": "Elections",
+    "categorySlug": "government-finance",
+    "description": "Voting, GRCs, and political process.",
+    "coverImage": "/images/topics/elections.svg",
+    "featuredTheoryIds": [
+      "6",
+      "15"
+    ]
+  },
+  {
+    "slug": "hdb-housing",
+    "name": "HDB & Housing",
+    "categorySlug": "government-finance",
+    "description": "HDB lease, affordability, policy.",
+    "coverImage": "/images/topics/hdb-housing.svg",
+    "featuredTheoryIds": [
+      "7"
+    ]
+  },
+  {
+    "slug": "charities",
+    "name": "Charities",
+    "categorySlug": "civil-society-institutions",
+    "description": "NKF and charity governance.",
+    "coverImage": "/images/topics/charities.svg",
+    "featuredTheoryIds": [
+      "8"
+    ]
+  },
+  {
+    "slug": "foreign-influence",
+    "name": "Foreign Influence",
+    "categorySlug": "history-sovereignty",
+    "description": "Intelligence, ports, external actors.",
+    "coverImage": "/images/topics/foreign-influence.svg",
+    "featuredTheoryIds": [
+      "9",
+      "16"
+    ]
+  },
+  {
+    "slug": "infrastructure",
+    "name": "Infrastructure",
+    "categorySlug": "technology-surveillance",
+    "description": "MRT, transport, maintenance.",
+    "coverImage": "/images/topics/infrastructure.svg",
+    "featuredTheoryIds": [
+      "10"
+    ]
+  },
+  {
+    "slug": "leadership",
+    "name": "Leadership",
+    "categorySlug": "government-finance",
+    "description": "Estate, wills, family politics.",
+    "coverImage": "/images/topics/leadership.svg",
+    "featuredTheoryIds": [
+      "11"
+    ]
+  },
+  {
+    "slug": "financial-crime",
+    "name": "Financial Crime",
+    "categorySlug": "government-finance",
+    "description": "1MDB, tax, money laundering.",
+    "coverImage": "/images/topics/financial-crime.svg",
+    "featuredTheoryIds": [
+      "12",
+      "20"
+    ]
+  },
+  {
+    "slug": "media-law",
+    "name": "Media & Law",
+    "categorySlug": "civil-society-institutions",
+    "description": "POFMA, free speech, misinformation.",
+    "coverImage": "/images/topics/media-law.svg",
+    "featuredTheoryIds": [
+      "13"
+    ]
+  },
+  {
+    "slug": "bilateral-relations",
+    "name": "Bilateral Relations",
+    "categorySlug": "history-sovereignty",
+    "description": "Water, Malaysia, treaties.",
+    "coverImage": "/images/topics/bilateral-relations.svg",
+    "featuredTheoryIds": [
+      "14"
+    ]
+  },
+  {
+    "slug": "business-regulation",
+    "name": "Business & Regulation",
+    "categorySlug": "civil-society-institutions",
+    "description": "Grab, competition, monopolies.",
+    "coverImage": "/images/topics/business-regulation.svg",
+    "featuredTheoryIds": [
+      "17"
+    ]
+  },
+  {
+    "slug": "social-policy",
+    "name": "Social Policy",
+    "categorySlug": "government-finance",
+    "description": "Hawker centres, welfare, culture.",
+    "coverImage": "/images/topics/social-policy.svg",
+    "featuredTheoryIds": [
+      "19"
+    ]
+  }
+]

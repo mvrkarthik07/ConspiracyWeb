@@ -1,0 +1,798 @@
+[
+  {
+    "id": "1",
+    "title": "Reserves Used for Temasek Investments",
+    "slug": "reserves-temasek-investments",
+    "categorySlug": "government-finance",
+    "topicSlug": "national-reserves",
+    "summary": "Claim that Singapore's reserves were secretly channelled into Temasek Holdings with limited transparency.",
+    "claim": "The theory alleges that a significant portion of Singapore's national reserves has been transferred to Temasek Holdings for investment purposes, with insufficient public accountability or parliamentary oversight over how these funds are managed or reported.",
+    "verdict": "false",
+    "rationale": [
+      "Constitutional and statutory frameworks require the President's approval for use of past reserves.",
+      "Temasek is a separate investment company; GIC manages reserves on behalf of the government.",
+      "Annual reports and disclosures are published; audits exist."
+    ],
+    "supportingPoints": [
+      "Limited public breakdown of exactly which assets are \"reserves\" vs \"Temasek\".",
+      "Historical opacity around reserves size until more recent disclosures."
+    ],
+    "counterPoints": [
+      "Elected President has veto over reserve drawdowns.",
+      "GIC and MAS manage reserves; Temasek holds government-linked companies.",
+      "Multiple official reports and international assessments address transparency."
+    ],
+    "keywords": [
+      "reserves",
+      "Temasek",
+      "GIC",
+      "Singapore government",
+      "national savings"
+    ],
+    "isTop": true,
+    "coverImage": "/images/theories/1.svg",
+    "galleryImages": [
+      "/images/theories/1.svg",
+      "/images/theories/1-2.svg",
+      "/images/theories/1-3.svg"
+    ],
+    "imageAltText": [
+      "Cover image",
+      "Supporting visual",
+      "Image 3"
+    ],
+    "contentWarnings": []
+  },
+  {
+    "id": "2",
+    "title": "1965 Separation Was a British Plot",
+    "slug": "1965-separation-british-plot",
+    "categorySlug": "history-sovereignty",
+    "topicSlug": "independence",
+    "summary": "Claim that the expulsion of Singapore from Malaysia was orchestrated by the UK to retain influence.",
+    "claim": "Some claim that the British government or intelligence services secretly encouraged or facilitated Singapore's separation from Malaysia in 1965 to maintain strategic and economic influence in the region, rather than it being solely a result of Malaysian-Singapore political disagreements.",
+    "verdict": "unverified",
+    "rationale": [
+      "Documentary evidence of direct British orchestration has not been presented.",
+      "Historical accounts emphasise UMNO-PAP tensions and racial politics.",
+      "UK had decolonisation interests that don't clearly align with \"keeping\" Singapore separate."
+    ],
+    "supportingPoints": [
+      "British military presence remained in Singapore after 1965.",
+      "Some declassified files from the period remain limited."
+    ],
+    "counterPoints": [
+      "Separation was negotiated between Kuala Lumpur and Singapore; UK was not a direct party.",
+      "Scholarship points to domestic political and communal factors."
+    ],
+    "keywords": [
+      "1965",
+      "separation",
+      "Malaysia",
+      "Singapore",
+      "British",
+      "independence"
+    ],
+    "isTop": true,
+    "coverImage": "/images/theories/2.svg",
+    "galleryImages": [
+      "/images/theories/2.svg",
+      "/images/theories/2-2.svg"
+    ],
+    "imageAltText": [
+      "Cover image",
+      "Supporting visual"
+    ],
+    "contentWarnings": []
+  },
+  {
+    "id": "3",
+    "title": "CPF Funds Used for Government Spending",
+    "slug": "cpf-funds-government-spending",
+    "categorySlug": "government-finance",
+    "topicSlug": "cpf",
+    "summary": "Claim that CPF contributions are lent to the government and used for general expenditure.",
+    "claim": "The theory holds that Central Provident Fund (CPF) monies are not held in a locked box but are effectively \"lent\" to the government and used for infrastructure or other spending, with returns to members allegedly below what could be earned elsewhere.",
+    "verdict": "unverified",
+    "rationale": [
+      "CPF Board states that members' balances are invested in special Singapore Government Securities (SSGS); how the government uses the proceeds is part of broader fiscal policy.",
+      "Whether returns are \"fair\" is a policy debate; the mechanical flow of funds is documented."
+    ],
+    "supportingPoints": [
+      "SSGS mechanism means government does receive funds; use of proceeds is not separately ring-fenced.",
+      "Comparisons with market returns are often cited by critics."
+    ],
+    "counterPoints": [
+      "SSGS are backed by government; structure is disclosed in budget and CPF reports.",
+      "Withdrawal rules and interest rates are set by law and publicly debated."
+    ],
+    "keywords": [
+      "CPF",
+      "Central Provident Fund",
+      "Singapore",
+      "pension",
+      "reserves"
+    ],
+    "isTop": true,
+    "coverImage": "/images/theories/3.svg",
+    "galleryImages": [
+      "/images/theories/3.svg",
+      "/images/theories/3-2.svg"
+    ],
+    "imageAltText": [
+      "Cover image",
+      "Supporting visual"
+    ],
+    "contentWarnings": []
+  },
+  {
+    "id": "4",
+    "title": "Population White Paper Conspiracy",
+    "slug": "population-white-paper-conspiracy",
+    "categorySlug": "government-finance",
+    "topicSlug": "population-policy",
+    "summary": "Claim that the 2013 Population White Paper was a predetermined plan to flood Singapore with foreigners.",
+    "claim": "The theory alleges that the Population White Paper (2013) was not a consultative document but a predetermined policy to increase the population to 6.9 million or more, primarily through immigration, to suppress wages and dilute local voting power.",
+    "verdict": "false",
+    "rationale": [
+      "The White Paper was a planning scenario, not a binding target; subsequent policy shifted after public feedback.",
+      "Immigration and work-pass policies have been tightened multiple times since.",
+      "No evidence of a secret plan to \"flood\"; the document was publicly debated."
+    ],
+    "supportingPoints": [
+      "Projected figures were high and caused concern.",
+      "Some felt consultation was insufficient."
+    ],
+    "counterPoints": [
+      "Government repeatedly adjusted policies in response to backlash.",
+      "Population growth has been slower than the earlier scenario."
+    ],
+    "keywords": [
+      "Population White Paper",
+      "immigration",
+      "6.9 million",
+      "Singapore population"
+    ],
+    "isTop": true,
+    "coverImage": "/images/theories/4.svg",
+    "galleryImages": [
+      "/images/theories/4.svg",
+      "/images/theories/4-2.svg"
+    ],
+    "imageAltText": [
+      "Cover image",
+      "Supporting visual"
+    ],
+    "contentWarnings": []
+  },
+  {
+    "id": "5",
+    "title": "TraceTogether Data Used for Policing",
+    "slug": "tracetogether-data-policing",
+    "categorySlug": "technology-surveillance",
+    "topicSlug": "covid-19-measures",
+    "summary": "Claim that TraceTogether data was always intended for criminal investigations.",
+    "claim": "After it was revealed that TraceTogether data could be used for criminal investigations under Singapore law, some claimed that this was the government's intention from the start and that the app was a trojan for expanded surveillance.",
+    "verdict": "false",
+    "rationale": [
+      "Legal scope of the Criminal Procedure Code was publicly clarified when the question arose; the law applied to any data in government hands.",
+      "TraceTogether was rolled out in a pandemic context with stated purpose of contact tracing.",
+      "No evidence has been shown that it was designed primarily for policing."
+    ],
+    "supportingPoints": [
+      "The possibility of use for criminal investigations was not prominently advertised at launch.",
+      "Trust was affected when the use was clarified."
+    ],
+    "counterPoints": [
+      "Parliamentary disclosure and subsequent debate addressed the issue.",
+      "Purpose of the app and data retention were documented."
+    ],
+    "keywords": [
+      "TraceTogether",
+      "COVID",
+      "surveillance",
+      "Singapore",
+      "privacy",
+      "police"
+    ],
+    "isTop": true,
+    "coverImage": "/images/theories/5.svg",
+    "galleryImages": [
+      "/images/theories/5.svg",
+      "/images/theories/5-2.svg"
+    ],
+    "imageAltText": [
+      "Cover image",
+      "Supporting visual"
+    ],
+    "contentWarnings": []
+  },
+  {
+    "id": "6",
+    "title": "Elections Are Rigged",
+    "slug": "elections-rigged",
+    "categorySlug": "government-finance",
+    "topicSlug": "elections",
+    "summary": "Claim that voting and counting are manipulated to ensure PAP victory.",
+    "claim": "The theory alleges that Singapore elections are not free and fair—that voting secrecy is compromised, or that counting or reporting of results is manipulated to ensure the ruling party's victory.",
+    "verdict": "false",
+    "rationale": [
+      "Elections are administered by the Elections Department; multiple parties have won seats and GRCs.",
+      "International observers and scholars have described the process as technically sound.",
+      "No credible evidence of ballot stuffing or counting fraud has been presented."
+    ],
+    "supportingPoints": [
+      "Structural advantages (GRCs, short campaigning period) are widely criticised.",
+      "Some voters fear lack of secrecy in small precincts."
+    ],
+    "counterPoints": [
+      "Opposition has won seats in multiple elections; results are announced at counting centres.",
+      "Legal and administrative framework is documented and contested in courts when disputed."
+    ],
+    "keywords": [
+      "elections",
+      "PAP",
+      "Singapore",
+      "voting",
+      "GRC",
+      "rigged"
+    ],
+    "isTop": true,
+    "coverImage": "/images/theories/6.svg",
+    "galleryImages": [
+      "/images/theories/6.svg",
+      "/images/theories/6-2.svg"
+    ],
+    "imageAltText": [
+      "Cover image",
+      "Supporting visual"
+    ],
+    "contentWarnings": []
+  },
+  {
+    "id": "7",
+    "title": "HDB Flat 99-Year Lease Scam",
+    "slug": "hdb-lease-99-year",
+    "categorySlug": "government-finance",
+    "topicSlug": "hdb-housing",
+    "summary": "Claim that HDB sells leasehold as if it were an asset that retains value to the end.",
+    "claim": "The theory alleges that the government knowingly markets HDB flats as appreciating assets while the 99-year lease will eventually leave owners with nothing, and that this is a deliberate wealth transfer from citizens to the state.",
+    "verdict": "unverified",
+    "rationale": [
+      "Lease terms are stated in contracts and publicly discussed; depreciation of lease is a known issue.",
+      "Whether policy should change (e.g. top-ups, buyback) is a matter of ongoing debate.",
+      "Intent to \"scam\" is not established; criticism is often about fairness of design."
+    ],
+    "supportingPoints": [
+      "Many buyers may not fully internalise lease decay.",
+      "Resale prices for short-lease flats have raised concerns."
+    ],
+    "counterPoints": [
+      "Leasehold is disclosed; policy has evolved (e.g. VERS, SERS).",
+      "Comparisons with other leasehold systems exist globally."
+    ],
+    "keywords": [
+      "HDB",
+      "lease",
+      "99-year",
+      "housing",
+      "Singapore",
+      "property"
+    ],
+    "isTop": false,
+    "coverImage": "/images/theories/7.svg",
+    "galleryImages": [
+      "/images/theories/7.svg",
+      "/images/theories/7-2.svg"
+    ],
+    "imageAltText": [
+      "Cover image",
+      "Supporting visual"
+    ],
+    "contentWarnings": []
+  },
+  {
+    "id": "8",
+    "title": "NKF Scandal Cover-Up",
+    "slug": "nkf-scandal-cover-up",
+    "categorySlug": "civil-society-institutions",
+    "topicSlug": "charities",
+    "summary": "Claim that the full extent of NKF mismanagement was suppressed.",
+    "claim": "After the National Kidney Foundation (NKF) scandal in the 2000s, some suggested that the full extent of mismanagement or political connections was covered up and that only a subset of wrongdoing was exposed.",
+    "verdict": "false",
+    "rationale": [
+      "NKF was subject to court proceedings, leadership change, and regulatory scrutiny.",
+      "Subsequent governance reforms in the charity sector were widely reported.",
+      "No evidence of a coordinated cover-up has been produced."
+    ],
+    "supportingPoints": [
+      "Public shock at the scale of excesses led to lasting distrust of some institutions."
+    ],
+    "counterPoints": [
+      "Legal and regulatory actions were public; new management took over."
+    ],
+    "keywords": [
+      "NKF",
+      "National Kidney Foundation",
+      "Singapore",
+      "scandal",
+      "charity"
+    ],
+    "isTop": false,
+    "coverImage": "/images/theories/8.svg",
+    "galleryImages": [
+      "/images/theories/8.svg",
+      "/images/theories/8-2.svg"
+    ],
+    "imageAltText": [
+      "Cover image",
+      "Supporting visual"
+    ],
+    "contentWarnings": []
+  },
+  {
+    "id": "9",
+    "title": "Singapore as CIA Base",
+    "slug": "singapore-cia-base",
+    "categorySlug": "history-sovereignty",
+    "topicSlug": "foreign-influence",
+    "summary": "Claim that Singapore has long been a key intelligence hub for Western agencies.",
+    "claim": "The theory alleges that Singapore's strategic position and close security ties with Western countries mean it has functioned as a base or conduit for intelligence agencies such as the CIA, with implications for sovereignty and neutrality.",
+    "verdict": "unverified",
+    "rationale": [
+      "Singapore has security partnerships with multiple countries; exact intelligence arrangements are not public.",
+      "No smoking-gun evidence of a \"CIA base\" has been presented.",
+      "Speculation often conflates diplomatic and defence ties with covert operations."
+    ],
+    "supportingPoints": [
+      "Historical and contemporary security partnerships are documented.",
+      "Some ex-intelligence memoirs reference regional activities."
+    ],
+    "counterPoints": [
+      "Singapore maintains relationships with many nations; no evidence of a single \"base\" role."
+    ],
+    "keywords": [
+      "CIA",
+      "intelligence",
+      "Singapore",
+      "USA",
+      "security",
+      "base"
+    ],
+    "isTop": false,
+    "coverImage": "/images/theories/9.svg",
+    "galleryImages": [
+      "/images/theories/9.svg",
+      "/images/theories/9-2.svg"
+    ],
+    "imageAltText": [
+      "Cover image",
+      "Supporting visual"
+    ],
+    "contentWarnings": []
+  },
+  {
+    "id": "10",
+    "title": "Mass Rapid Transit Sabotage Fears",
+    "slug": "mrt-sabotage-fears",
+    "categorySlug": "technology-surveillance",
+    "topicSlug": "infrastructure",
+    "summary": "Claim that MRT breakdowns were deliberately caused to benefit contractors or justify foreign labour.",
+    "claim": "During a spate of MRT disruptions, some suggested that failures were deliberately induced—e.g. to benefit maintenance contractors, justify hiring foreign workers, or distract from other issues.",
+    "verdict": "false",
+    "rationale": [
+      "Investigations pointed to technical and maintenance issues; no evidence of sabotage was found.",
+      "Ageing assets and underinvestment in maintenance were cited in official reports."
+    ],
+    "supportingPoints": [
+      "Frustration with repeated disruptions led to speculation."
+    ],
+    "counterPoints": [
+      "Independent committees and regulators published findings; no sabotage was identified."
+    ],
+    "keywords": [
+      "MRT",
+      "breakdown",
+      "Singapore",
+      "train",
+      "SMRT",
+      "sabotage"
+    ],
+    "isTop": false,
+    "coverImage": "/images/theories/10.svg",
+    "galleryImages": [
+      "/images/theories/10.svg",
+      "/images/theories/10-2.svg"
+    ],
+    "imageAltText": [
+      "Cover image",
+      "Supporting visual"
+    ],
+    "contentWarnings": []
+  },
+  {
+    "id": "11",
+    "title": "Lee Kuan Yew's Will Suppressed",
+    "slug": "lky-will-suppressed",
+    "categorySlug": "government-finance",
+    "topicSlug": "leadership",
+    "summary": "Claim that the full contents of LKY's will were hidden from the public.",
+    "claim": "Amid disputes among Lee family members over the estate, some claimed that parts of Lee Kuan Yew's will were suppressed or that the government interfered to control the narrative around his wishes, especially regarding the family home at 38 Oxley Road.",
+    "verdict": "unverified",
+    "rationale": [
+      "Will disputes were litigated in court; some documents were made public in proceedings.",
+      "What was \"full\" vs \"partial\" disclosure is contested; no independent finding of government suppression."
+    ],
+    "supportingPoints": [
+      "Family feud and legal battles raised questions about transparency."
+    ],
+    "counterPoints": [
+      "Courts dealt with the matter; various versions and interpretations were aired."
+    ],
+    "keywords": [
+      "Lee Kuan Yew",
+      "will",
+      "Oxley Road",
+      "Singapore",
+      "estate"
+    ],
+    "isTop": false,
+    "coverImage": "/images/theories/11.svg",
+    "galleryImages": [
+      "/images/theories/11.svg",
+      "/images/theories/11-2.svg"
+    ],
+    "imageAltText": [
+      "Cover image",
+      "Supporting visual"
+    ],
+    "contentWarnings": []
+  },
+  {
+    "id": "12",
+    "title": "1MDB Link to Singapore Banks",
+    "slug": "1mdb-singapore-banks",
+    "categorySlug": "government-finance",
+    "topicSlug": "financial-crime",
+    "summary": "Claim that Singapore authorities turned a blind eye to 1MDB flows through local banks.",
+    "claim": "The theory suggests that Singapore regulators or banks knowingly allowed or facilitated 1MDB-related fund flows through Singapore, and that enforcement action was delayed or limited for political or economic reasons.",
+    "verdict": "false",
+    "rationale": [
+      "MAS and law enforcement took action against several banks and individuals; fines and prosecutions occurred.",
+      "Singapore's role was examined in international investigations and reports."
+    ],
+    "supportingPoints": [
+      "Scale of flows through Singapore raised questions about oversight."
+    ],
+    "counterPoints": [
+      "Enforcement actions and regulatory reforms were public and significant."
+    ],
+    "keywords": [
+      "1MDB",
+      "Singapore",
+      "banks",
+      "MAS",
+      "money laundering"
+    ],
+    "isTop": false,
+    "coverImage": "/images/theories/12.svg",
+    "galleryImages": [
+      "/images/theories/12.svg",
+      "/images/theories/12-2.svg"
+    ],
+    "imageAltText": [
+      "Cover image",
+      "Supporting visual"
+    ],
+    "contentWarnings": []
+  },
+  {
+    "id": "13",
+    "title": "Fake News Law Used to Silence Critics",
+    "slug": "fake-news-law-silence-critics",
+    "categorySlug": "civil-society-institutions",
+    "topicSlug": "media-law",
+    "summary": "Claim that POFMA is primarily a tool to suppress dissent rather than combat misinformation.",
+    "claim": "The theory holds that the Protection from Online Falsehoods and Manipulation Act (POFMA) was designed and is used mainly to silence government critics and opposition figures, rather than to address genuine misinformation in a neutral way.",
+    "verdict": "unverified",
+    "rationale": [
+      "POFMA has been used against government critics and opposition; it has also been used on other actors.",
+      "Whether the balance is appropriate is a matter of ongoing debate and legal challenge.",
+      "International human rights bodies have raised concerns."
+    ],
+    "supportingPoints": [
+      "Many POFMA orders have targeted opposition or activists.",
+      "Critics argue the definition of \"falsehood\" is broad."
+    ],
+    "counterPoints": [
+      "Government states it is used for false statements of fact; some orders have been contested in court."
+    ],
+    "keywords": [
+      "POFMA",
+      "fake news",
+      "Singapore",
+      "freedom of speech",
+      "government"
+    ],
+    "isTop": false,
+    "coverImage": "/images/theories/13.svg",
+    "galleryImages": [
+      "/images/theories/13.svg",
+      "/images/theories/13-2.svg"
+    ],
+    "imageAltText": [
+      "Cover image",
+      "Supporting visual"
+    ],
+    "contentWarnings": []
+  },
+  {
+    "id": "14",
+    "title": "Water Agreement with Malaysia Unfair",
+    "slug": "water-agreement-malaysia-unfair",
+    "categorySlug": "history-sovereignty",
+    "topicSlug": "bilateral-relations",
+    "summary": "Claim that the 1962 water agreement was designed to exploit Malaysia.",
+    "claim": "On the Malaysian side, some claim the water agreements with Singapore were unfair and that Singapore has profited at Malaysia's expense. On the Singapore side, some claim Malaysia has repeatedly politicised the issue and threatened supply.",
+    "verdict": "unverified",
+    "rationale": [
+      "The agreement is a treaty; terms have been debated by both governments and in public.",
+      "Whether it is \"unfair\" depends on interpretation of history and international law.",
+      "Both sides have raised disputes; renegotiation has been discussed."
+    ],
+    "supportingPoints": [
+      "Price of raw water has been a long-standing bilateral irritant."
+    ],
+    "counterPoints": [
+      "Agreement was negotiated and has been upheld by both parties for decades."
+    ],
+    "keywords": [
+      "water",
+      "Malaysia",
+      "Singapore",
+      "1962 agreement",
+      "Johor"
+    ],
+    "isTop": false,
+    "coverImage": "/images/theories/14.svg",
+    "galleryImages": [
+      "/images/theories/14.svg",
+      "/images/theories/14-2.svg"
+    ],
+    "imageAltText": [
+      "Cover image",
+      "Supporting visual"
+    ],
+    "contentWarnings": []
+  },
+  {
+    "id": "15",
+    "title": "PAP Monopoly on Talent",
+    "slug": "pap-monopoly-talent",
+    "categorySlug": "government-finance",
+    "topicSlug": "elections",
+    "summary": "Claim that the ruling party systematically recruits the best candidates to block opposition.",
+    "claim": "The theory alleges that the PAP actively recruits high-achieving individuals into the party and into government, partly to deny the opposition access to such talent and to perpetuate one-party dominance.",
+    "verdict": "unverified",
+    "rationale": [
+      "All parties seek capable candidates; the PAP has a large pool of members and selection processes.",
+      "Whether this amounts to a deliberate \"monopoly\" on talent is a matter of interpretation.",
+      "Opposition parties have fielded professionals and former civil servants."
+    ],
+    "supportingPoints": [
+      "PAP has many MPs from elite schools and sectors; recruitment is visible."
+    ],
+    "counterPoints": [
+      "Political recruitment is common in many systems; opposition also has qualified candidates."
+    ],
+    "keywords": [
+      "PAP",
+      "talent",
+      "Singapore",
+      "elections",
+      "opposition"
+    ],
+    "isTop": false,
+    "coverImage": "/images/theories/15.svg",
+    "galleryImages": [
+      "/images/theories/15.svg",
+      "/images/theories/15-2.svg"
+    ],
+    "imageAltText": [
+      "Cover image",
+      "Supporting visual"
+    ],
+    "contentWarnings": []
+  },
+  {
+    "id": "16",
+    "title": "Singapore Port Sold to China",
+    "slug": "singapore-port-sold-china",
+    "categorySlug": "history-sovereignty",
+    "topicSlug": "foreign-influence",
+    "summary": "Claim that key port assets were sold to Chinese state interests.",
+    "claim": "The theory suggests that Singapore has sold or ceded control of critical port or logistics assets to Chinese state-linked companies, compromising national security or sovereignty.",
+    "verdict": "false",
+    "rationale": [
+      "PSA and port operations remain under Singapore entities; Chinese companies have invested in some terminals globally, including in partnership with local operators.",
+      "No evidence of a \"sale\" of Singapore's core port sovereignty has been presented."
+    ],
+    "supportingPoints": [
+      "Chinese investment in global ports is widespread; some terminals have Chinese stakes."
+    ],
+    "counterPoints": [
+      "PSA International and Temasek-linked entities retain central roles; structure is documented."
+    ],
+    "keywords": [
+      "port",
+      "Singapore",
+      "China",
+      "PSA",
+      "shipping"
+    ],
+    "isTop": false,
+    "coverImage": "/images/theories/16.svg",
+    "galleryImages": [
+      "/images/theories/16.svg",
+      "/images/theories/16-2.svg"
+    ],
+    "imageAltText": [
+      "Cover image",
+      "Supporting visual"
+    ],
+    "contentWarnings": []
+  },
+  {
+    "id": "17",
+    "title": "Grab Monopoly Backed by Government",
+    "slug": "grab-monopoly-government",
+    "categorySlug": "civil-society-institutions",
+    "topicSlug": "business-regulation",
+    "summary": "Claim that Grab's dominance was encouraged by regulators to favour a local champion.",
+    "claim": "The theory alleges that the government allowed or encouraged the Grab-Uber merger and subsequent market dominance to favour a \"local\" player and that competition enforcement was weak as a result.",
+    "verdict": "unverified",
+    "rationale": [
+      "Competition authorities did review the merger and imposed conditions.",
+      "Whether enforcement was sufficient is debated; other players (e.g. Gojek, ComfortDelGro) operate."
+    ],
+    "supportingPoints": [
+      "Grab has a large market share; some drivers and users feel locked in."
+    ],
+    "counterPoints": [
+      "CCCS conducted a review; remedies were applied; market has multiple actors."
+    ],
+    "keywords": [
+      "Grab",
+      "Uber",
+      "Singapore",
+      "monopoly",
+      "competition"
+    ],
+    "isTop": false,
+    "coverImage": "/images/theories/17.svg",
+    "galleryImages": [
+      "/images/theories/17.svg",
+      "/images/theories/17-2.svg"
+    ],
+    "imageAltText": [
+      "Cover image",
+      "Supporting visual"
+    ],
+    "contentWarnings": []
+  },
+  {
+    "id": "18",
+    "title": "Reserves Size Deliberately Hidden",
+    "slug": "reserves-size-hidden",
+    "categorySlug": "government-finance",
+    "topicSlug": "national-reserves",
+    "summary": "Claim that the full size of Singapore's reserves is classified to avoid accountability.",
+    "claim": "The theory holds that the government deliberately keeps the full size of official reserves (and related assets) secret so that it cannot be held to account for how they are used or how much is \"enough.\"",
+    "verdict": "unverified",
+    "rationale": [
+      "Exact total reserve figures are not fully disclosed; the government cites strategic and market sensitivity.",
+      "Some aggregate data is published (e.g. MAS reserves, GIC reporting); level of detail is a policy choice."
+    ],
+    "supportingPoints": [
+      "Transparency advocates have called for more disclosure.",
+      "Comparisons with other sovereign wealth funds vary in what is reported."
+    ],
+    "counterPoints": [
+      "Disclosure has increased over time; constitutional safeguards exist for drawdowns."
+    ],
+    "keywords": [
+      "reserves",
+      "Singapore",
+      "GIC",
+      "MAS",
+      "transparency"
+    ],
+    "isTop": false,
+    "coverImage": "/images/theories/18.svg",
+    "galleryImages": [
+      "/images/theories/18.svg",
+      "/images/theories/18-2.svg"
+    ],
+    "imageAltText": [
+      "Cover image",
+      "Supporting visual"
+    ],
+    "contentWarnings": []
+  },
+  {
+    "id": "19",
+    "title": "Hawker Centres Privatisation Plan",
+    "slug": "hawker-centres-privatisation",
+    "categorySlug": "government-finance",
+    "topicSlug": "social-policy",
+    "summary": "Claim that the government plans to sell or corporatise hawker centres.",
+    "claim": "The theory suggests that the government is gradually privatising or corporatising hawker centres, leading to higher rents and loss of character, and that this is a deliberate policy to benefit operators or developers.",
+    "verdict": "false",
+    "rationale": [
+      "Hawker centres remain under NEA and similar agencies; social enterprise models were introduced but ownership structure differs from full privatisation.",
+      "Debate continues on stall rents and sustainability; no evidence of a secret sell-off plan."
+    ],
+    "supportingPoints": [
+      "Rising costs and operator models have raised concerns among stallholders."
+    ],
+    "counterPoints": [
+      "Government has expanded building of new hawker centres and support schemes."
+    ],
+    "keywords": [
+      "hawker",
+      "Singapore",
+      "NEA",
+      "privatisation",
+      "food"
+    ],
+    "isTop": false,
+    "coverImage": "/images/theories/19.svg",
+    "galleryImages": [
+      "/images/theories/19.svg",
+      "/images/theories/19-2.svg"
+    ],
+    "imageAltText": [
+      "Cover image",
+      "Supporting visual"
+    ],
+    "contentWarnings": []
+  },
+  {
+    "id": "20",
+    "title": "Singapore as Tax Haven for Elites",
+    "slug": "singapore-tax-haven-elites",
+    "categorySlug": "government-finance",
+    "topicSlug": "financial-crime",
+    "summary": "Claim that Singapore deliberately functions as a secrecy jurisdiction for global elites.",
+    "claim": "The theory alleges that Singapore's financial centre is designed to attract and protect wealth from global elites with minimal taxation or disclosure, and that the government resists international transparency standards to serve this purpose.",
+    "verdict": "unverified",
+    "rationale": [
+      "Singapore has participated in CRS and other international tax transparency initiatives.",
+      "Competitiveness of the financial sector is a stated policy; whether it is a \"tax haven\" is a matter of definition and ongoing OECD/EU assessments."
+    ],
+    "supportingPoints": [
+      "Singapore has attracted private wealth; some regimes have been criticised by NGOs."
+    ],
+    "counterPoints": [
+      "Singapore has signed multiple agreements and adopted reporting standards."
+    ],
+    "keywords": [
+      "tax",
+      "Singapore",
+      "wealth",
+      "offshore",
+      "financial centre"
+    ],
+    "isTop": false,
+    "coverImage": "/images/theories/20.svg",
+    "galleryImages": [
+      "/images/theories/20.svg",
+      "/images/theories/20-2.svg"
+    ],
+    "imageAltText": [
+      "Cover image",
+      "Supporting visual"
+    ],
+    "contentWarnings": []
+  }
+]

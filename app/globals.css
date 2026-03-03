@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0a0c10;
+  --panel: #13171d;
+  --surface: #161b22;
+  --text: #e6edf3;
+  --text-muted: #8b949e;
+  --accent: #58a6ff;
+  --radius-card: 0.5rem;
+  --radius-card-lg: 0.75rem;
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-text antialiased min-h-screen text-body;
+  }
+
+  ::selection {
+    @apply bg-accent/30 text-text;
+  }
+
+  a:not([class]) {
+    @apply text-accent underline underline-offset-2 hover:text-accent-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded;
+  }
+}
+
+@layer components {
+  .container-app {
+    @apply mx-auto w-full max-w-container px-4 sm:px-6 lg:px-8;
+  }
+
+  .page-rhythm {
+    @apply space-y-8;
+  }
+
+  .section-spacing {
+    @apply py-8 sm:py-10;
+  }
+
+  .typography-display {
+    @apply text-display font-bold tracking-tight text-text;
+  }
+
+  .typography-h1 {
+    @apply text-h1 font-bold text-text;
+  }
+
+  .typography-h2 {
+    @apply text-h2 font-semibold text-text;
+  }
+
+  .typography-h3 {
+    @apply text-h3 font-semibold text-text;
+  }
+
+  .typography-body {
+    @apply text-body text-text;
+  }
+
+  .typography-small {
+    @apply text-small text-text-muted;
+  }
+
+  .typography-caption {
+    @apply text-caption text-text-muted uppercase tracking-wider;
+  }
+
+  .image-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent backdrop-blur-[1px];
+  }
+}
+
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-accent rounded;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

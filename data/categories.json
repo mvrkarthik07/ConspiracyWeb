@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "government-finance",
+    "name": "Government & Finance",
+    "description": "Claims and allegations about reserves, policy, elections, and public institutions.",
+    "heroImage": "/images/categories/government-finance.svg",
+    "accentColor": "#3b82f6"
+  },
+  {
+    "slug": "history-sovereignty",
+    "name": "History & Sovereignty",
+    "description": "Historical narratives, independence, and bilateral relations.",
+    "heroImage": "/images/categories/history-sovereignty.svg",
+    "accentColor": "#8b5cf6"
+  },
+  {
+    "slug": "technology-surveillance",
+    "name": "Technology & Surveillance",
+    "description": "Tech, infrastructure, and privacy-related claims.",
+    "heroImage": "/images/categories/technology-surveillance.svg",
+    "accentColor": "#06b6d4"
+  },
+  {
+    "slug": "civil-society-institutions",
+    "name": "Civil Society & Institutions",
+    "description": "Charities, media, business regulation, and governance.",
+    "heroImage": "/images/categories/civil-society-institutions.svg",
+    "accentColor": "#10b981"
+  }
+]

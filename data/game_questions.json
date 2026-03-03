@@ -1,0 +1,256 @@
+[
+  {
+    "id": "gq1",
+    "skillTag": "Source Evaluation",
+    "difficulty": 1,
+    "scenario": "A friend forwards you an article headlined \"Study proves vaccine causes long-term harm.\" The article cites \"research from a leading institute\" but does not name the institute or link to the study.",
+    "evidenceCards": [
+      { "title": "Article: Study proves vaccine causes long-term harm", "sourceType": "Social media post", "snippet": "Shares a headline and one paragraph; no author byline or date.", "credibilityHint": "Unknown origin" },
+      { "title": "WHO vaccine safety overview", "sourceType": "International health body", "snippet": "Summarises monitored adverse events and ongoing studies; links to published data.", "credibilityHint": "Verifiable" }
+    ],
+    "options": [
+      { "text": "Trust the article because it sounds scientific", "isCorrect": false, "explanation": "The headline uses scientific language but provides no verifiable source." },
+      { "text": "Withhold judgment until you can find the original study and who funded it", "isCorrect": true, "explanation": "Strong critical thinking: check primary sources and incentives before concluding." },
+      { "text": "Assume it is false because WHO exists", "isCorrect": false, "explanation": "Dismissing a claim only because another body exists is not evidence-based evaluation." },
+      { "text": "Share it so others can decide for themselves", "isCorrect": false, "explanation": "Sharing unverified claims can spread misinformation; verification should come first." }
+    ],
+    "takeaway": "Always identify the primary source and its incentives before accepting a claim."
+  },
+  {
+    "id": "gq2",
+    "skillTag": "Bias Detection",
+    "difficulty": 1,
+    "scenario": "You read two pieces about the same policy: one from a government press release and one from an opposition party's website. Both describe the same new law but draw opposite conclusions.",
+    "evidenceCards": [
+      { "title": "Gov press release: New law strengthens accountability", "sourceType": "Government", "snippet": "Emphasises transparency and public consultation in the new framework.", "credibilityHint": "Stakeholder" },
+      { "title": "Opposition: New law concentrates power", "sourceType": "Political party", "snippet": "Argues the law grants excessive discretion and weakens checks.", "credibilityHint": "Stakeholder" }
+    ],
+    "options": [
+      { "text": "The government is always more reliable", "isCorrect": false, "explanation": "Assuming one side is always right is bias, not reasoning." },
+      { "text": "Look for neutral analysis (e.g. academics, fact-checkers) and primary legal text", "isCorrect": true, "explanation": "Seeking independent and primary sources helps balance partisan framing." },
+      { "text": "The opposition is always more critical and therefore more honest", "isCorrect": false, "explanation": "Critical does not automatically mean accurate; evidence still matters." },
+      { "text": "Pick the side that matches your existing views", "isCorrect": false, "explanation": "Confirmation bias undermines critical thinking." }
+    ],
+    "takeaway": "When stakeholders disagree, seek neutral analysis and primary sources."
+  },
+  {
+    "id": "gq3",
+    "skillTag": "Evidence Weighting",
+    "difficulty": 2,
+    "scenario": "Someone claims \"Experts say X is dangerous.\" You find one op-ed by a retired professor who says X is dangerous, and three peer-reviewed studies that find no significant risk.",
+    "evidenceCards": [
+      { "title": "Op-ed: Why X is dangerous", "sourceType": "Opinion piece", "snippet": "Single author, retired academic; no new data, personal view.", "credibilityHint": "Opinion" },
+      { "title": "Meta-analysis in Journal of Y", "sourceType": "Peer-reviewed", "snippet": "Systematic review of 24 studies; concludes no significant risk in normal use.", "credibilityHint": "Research" }
+    ],
+    "options": [
+      { "text": "One expert said it so it must be true", "isCorrect": false, "explanation": "One opinion does not outweigh systematic evidence." },
+      { "text": "Weight the peer-reviewed meta-analysis more than a single op-ed", "isCorrect": true, "explanation": "Aggregated, peer-reviewed evidence is typically stronger than one opinion." },
+      { "text": "Ignore both and decide based on gut feeling", "isCorrect": false, "explanation": "Evidence should inform conclusions rather than gut feeling." },
+      { "text": "Assume the op-ed is right because it is more readable", "isCorrect": false, "explanation": "Clarity of writing does not indicate accuracy." }
+    ],
+    "takeaway": "Weigh evidence by type and volume: peer-reviewed synthesis usually outweighs single opinions."
+  },
+  {
+    "id": "gq4",
+    "skillTag": "Hypothesis Testing",
+    "difficulty": 2,
+    "scenario": "A rumour says \"Event A was cancelled because of secret pressure.\" You know Event A was cancelled; the organiser cited \"logistical reasons.\"",
+    "evidenceCards": [
+      { "title": "Organiser statement", "sourceType": "Official", "snippet": "Event A is cancelled due to logistical constraints; we apologise for any inconvenience.", "credibilityHint": "Primary" },
+      { "title": "Anonymous post", "sourceType": "Social media", "snippet": "Heard from a friend that A was cancelled after pressure from [entity]. No proof.", "credibilityHint": "Unverified" }
+    ],
+    "options": [
+      { "text": "The secret pressure explanation is true because it is more interesting", "isCorrect": false, "explanation": "Interest or drama does not make a claim true." },
+      { "text": "Treat the rumour as unconfirmed; look for corroborating evidence before believing", "isCorrect": true, "explanation": "Extraordinary claims need corroboration; one anonymous post is weak." },
+      { "text": "The organiser would never tell the truth so the rumour is true", "isCorrect": false, "explanation": "Assuming the opposite of an official statement is not sound reasoning." },
+      { "text": "Believe whichever you heard first", "isCorrect": false, "explanation": "Order of exposure is not a valid way to weigh evidence." }
+    ],
+    "takeaway": "Unverified rumours need corroboration; don't assume the most dramatic explanation is correct."
+  },
+  {
+    "id": "gq5",
+    "skillTag": "Source Evaluation",
+    "difficulty": 2,
+    "scenario": "A video clip shows a public figure saying something controversial. The clip is 15 seconds long and has been shared millions of times. The caption says they \"admitted\" something damaging.",
+    "evidenceCards": [
+      { "title": "15-second clip", "sourceType": "Video excerpt", "snippet": "No context: you cannot see what question was asked or what was said before/after.", "credibilityHint": "Edited" },
+      { "title": "Full press conference transcript", "sourceType": "Official transcript", "snippet": "Shows full Q&A; in context the remark was hypothetical and later clarified.", "credibilityHint": "Primary" }
+    ],
+    "options": [
+      { "text": "Trust the clip because it went viral", "isCorrect": false, "explanation": "Virality does not indicate accuracy; clips can be misleading." },
+      { "text": "Seek the full context (full video or transcript) before judging", "isCorrect": true, "explanation": "Short clips can distort meaning; full context is essential." },
+      { "text": "Assume the caption is correct", "isCorrect": false, "explanation": "Captions are often interpretive or biased; verify against primary source." },
+      { "text": "Ignore the transcript if it contradicts the clip", "isCorrect": false, "explanation": "Primary sources should override edited excerpts." }
+    ],
+    "takeaway": "Short clips can misrepresent; always seek full context before concluding."
+  },
+  {
+    "id": "gq6",
+    "skillTag": "Bias Detection",
+    "difficulty": 2,
+    "scenario": "You are reading an article that strongly supports a policy you already favour. The article quotes several experts and cites studies.",
+    "evidenceCards": [
+      { "title": "Article in favour of policy", "sourceType": "News/opinion", "snippet": "Quotes 4 experts who support the policy; cites 2 studies with positive findings.", "credibilityHint": "One-sided" },
+      { "title": "Academic overview", "sourceType": "Review article", "snippet": "Summarises mixed evidence: benefits in X, limitations in Y, need for more data.", "credibilityHint": "Nuanced" }
+    ],
+    "options": [
+      { "text": "Accept the article because it matches your view", "isCorrect": false, "explanation": "Confirmation bias: agreeing with a view is not evidence it is correct." },
+      { "text": "Seek out summaries that present mixed or opposing views to test your view", "isCorrect": true, "explanation": "Seeking disconfirming evidence strengthens reasoning." },
+      { "text": "Dismiss the academic overview as too cautious", "isCorrect": false, "explanation": "Nuance and uncertainty are part of honest evidence; don't dismiss them." },
+      { "text": "Share the article without checking other sources", "isCorrect": false, "explanation": "Sharing one-sided content can reinforce bias in others." }
+    ],
+    "takeaway": "Actively seek out opposing or mixed evidence to avoid confirmation bias."
+  },
+  {
+    "id": "gq7",
+    "skillTag": "Evidence Weighting",
+    "difficulty": 1,
+    "scenario": "Someone says \"A celebrity endorsed this product so it must work.\" You find the celebrity was paid to promote it and there are no independent studies on the product.",
+    "evidenceCards": [
+      { "title": "Celebrity ad", "sourceType": "Advertisement", "snippet": "Celebrity says they use the product every day; small print: paid partnership.", "credibilityHint": "Paid" },
+      { "title": "Independent testing", "sourceType": "Consumer lab", "snippet": "No published tests found for this product; company did not provide samples.", "credibilityHint": "Absent" }
+    ],
+    "options": [
+      { "text": "Celebrity endorsement is strong evidence", "isCorrect": false, "explanation": "Paid endorsements are not independent evidence of efficacy." },
+      { "text": "Treat the claim as unproven until there is independent evidence", "isCorrect": true, "explanation": "Without independent testing, efficacy claims are not supported." },
+      { "text": "Assume it works because the celebrity is famous", "isCorrect": false, "explanation": "Fame does not equal expertise or honesty in ads." },
+      { "text": "Assume it does not work because it is advertised", "isCorrect": false, "explanation": "Skepticism is good but concluding the opposite without evidence is also weak." }
+    ],
+    "takeaway": "Paid endorsements are not evidence of effectiveness; look for independent evidence."
+  },
+  {
+    "id": "gq8",
+    "skillTag": "Hypothesis Testing",
+    "difficulty": 1,
+    "scenario": "A message claims \"They are hiding the real numbers.\" You find official statistics published on a government website, with methodology explained.",
+    "evidenceCards": [
+      { "title": "Message", "sourceType": "Forwarded message", "snippet": "They are hiding the real numbers. Everyone knows it.", "credibilityHint": "No evidence" },
+      { "title": "Official statistics", "sourceType": "Government site", "snippet": "Data tables, methodology note, and release calendar.", "credibilityHint": "Documented" }
+    ],
+    "options": [
+      { "text": "Believe the message because it is widely shared", "isCorrect": false, "explanation": "Sharing does not substitute for evidence." },
+      { "text": "Treat the official data as the best available evidence unless you find specific flaws", "isCorrect": true, "explanation": "Documented, methodologically clear data is stronger than unsupported claims." },
+      { "text": "Assume officials always lie", "isCorrect": false, "explanation": "Assuming the opposite of official data without evidence is not reasoning." },
+      { "text": "Ignore both and form your own number", "isCorrect": false, "explanation": "Inventing data does not improve accuracy." }
+    ],
+    "takeaway": "Unsupported claims of \"hidden\" data should be weighed against documented, public evidence."
+  },
+  {
+    "id": "gq9",
+    "skillTag": "Source Evaluation",
+    "difficulty": 3,
+    "scenario": "A report is described as \"leaked\" and \"reveals the truth.\" You cannot find the original document or any statement from the alleged source confirming it.",
+    "evidenceCards": [
+      { "title": "Summary of \"leak\"", "sourceType": "Blog", "snippet": "Summarises what the leak supposedly says; no document, no named leaker.", "credibilityHint": "Unverifiable" },
+      { "title": "Official denial", "sourceType": "Press release", "snippet": "The organisation states it has no record of such a document and no comment.", "credibilityHint": "Primary" }
+    ],
+    "options": [
+      { "text": "Leaks are always true", "isCorrect": false, "explanation": "Alleged leaks must be verified; not every claim of a leak is genuine." },
+      { "text": "Withhold judgment until the document is produced or independently verified", "isCorrect": true, "explanation": "Unverifiable leaks cannot be treated as fact." },
+      { "text": "The denial proves the leak is true", "isCorrect": false, "explanation": "Denials do not logically prove the opposite." },
+      { "text": "Share the summary so others can verify", "isCorrect": false, "explanation": "Sharing unverifiable claims spreads potential misinformation." }
+    ],
+    "takeaway": "Unverifiable \"leaks\" should not be treated as established fact."
+  },
+  {
+    "id": "gq10",
+    "skillTag": "Bias Detection",
+    "difficulty": 3,
+    "scenario": "You notice that your main news source consistently frames one political party positively and another negatively, even when covering similar events.",
+    "evidenceCards": [
+      { "title": "Your usual source", "sourceType": "News outlet", "snippet": "Headlines and tone differ clearly by party; same type of event covered differently.", "credibilityHint": "Pattern" },
+      { "title": "Alternative source", "sourceType": "Different outlet", "snippet": "Different framing; some overlap in facts but different emphasis and tone.", "credibilityHint": "Comparison" }
+    ],
+    "options": [
+      { "text": "Ignore the pattern; your source is always right", "isCorrect": false, "explanation": "Consistent bias can distort your view; awareness is important." },
+      { "text": "Consciously diversify sources to get multiple framings and check facts", "isCorrect": true, "explanation": "Diversifying sources improves balance and fact-checking." },
+      { "text": "Assume the other side is always wrong", "isCorrect": false, "explanation": "Tribal reasoning undermines critical thinking." },
+      { "text": "Stop consuming news entirely", "isCorrect": false, "explanation": "Avoiding news is not the same as consuming it critically." }
+    ],
+    "takeaway": "Noticing consistent bias is the first step; diversifying sources improves judgment."
+  },
+  {
+    "id": "gq11",
+    "skillTag": "Evidence Weighting",
+    "difficulty": 3,
+    "scenario": "Two studies conflict: one finds a link between X and Y (small sample, single country); another finds no link (larger, multi-country, pre-registered).",
+    "evidenceCards": [
+      { "title": "Study A", "sourceType": "Journal", "snippet": "Single country, n=200, found association; authors note limitations and call for replication.", "credibilityHint": "Limited" },
+      { "title": "Study B", "sourceType": "Journal", "snippet": "Multi-country, n=20,000, pre-registered; no significant association after adjustment.", "credibilityHint": "Stronger" }
+    ],
+    "options": [
+      { "text": "Study A is right because it found something", "isCorrect": false, "explanation": "Finding an effect in a small sample is weaker than no effect in a large, pre-registered study." },
+      { "text": "Weight Study B more: larger sample, pre-registered, multi-country", "isCorrect": true, "explanation": "Methodological strength and scale support weighting B more." },
+      { "text": "They cancel out so we know nothing", "isCorrect": false, "explanation": "Evidence can be weighted by quality; they do not simply cancel." },
+      { "text": "Pick the study that supports your prior belief", "isCorrect": false, "explanation": "That is confirmation bias, not evidence weighting." }
+    ],
+    "takeaway": "Weigh studies by design, scale, and pre-registration; larger, pre-registered studies are stronger."
+  },
+  {
+    "id": "gq12",
+    "skillTag": "Hypothesis Testing",
+    "difficulty": 3,
+    "scenario": "A claim states that \"they\" knew in advance about an event and did nothing. The only evidence is that a generic risk assessment once mentioned a similar scenario.",
+    "evidenceCards": [
+      { "title": "Claim", "sourceType": "Social post", "snippet": "They knew. The 2019 report mentioned something like this. They did nothing.", "credibilityHint": "Interpretation" },
+      { "title": "2019 risk assessment", "sourceType": "Public document", "snippet": "Lists many hypothetical risks; no specific prediction of this event; no evidence of inaction.", "credibilityHint": "Generic" }
+    ],
+    "options": [
+      { "text": "Mentioning a risk in a list means they knew this would happen", "isCorrect": false, "explanation": "Generic risk lists do not equate to specific foreknowledge." },
+      { "text": "Distinguish between generic risk awareness and specific foreknowledge + inaction", "isCorrect": true, "explanation": "Critical thinking requires distinguishing levels of knowledge and evidence of inaction." },
+      { "text": "Any prior mention proves a cover-up", "isCorrect": false, "explanation": "That would be over-interpreting a generic document." },
+      { "text": "Ignore the document and rely on the claim", "isCorrect": false, "explanation": "Primary documents should be used to evaluate claims." }
+    ],
+    "takeaway": "Generic risk assessments are not proof of specific foreknowledge or inaction."
+  },
+  {
+    "id": "gq13",
+    "skillTag": "Source Evaluation",
+    "difficulty": 1,
+    "scenario": "A health claim is attributed to \"doctors\" or \"experts\" with no names, institutions, or links.",
+    "evidenceCards": [
+      { "title": "Article", "sourceType": "Lifestyle site", "snippet": "Experts say that [claim]. Doctors recommend [product]. No quotes, no names.", "credibilityHint": "Vague" },
+      { "title": "Medical body statement", "sourceType": "Professional body", "snippet": "Named authors, position statement, references to studies.", "credibilityHint": "Verifiable" }
+    ],
+    "options": [
+      { "text": "Trust it because it says experts", "isCorrect": false, "explanation": "Anonymous \"experts\" cannot be verified." },
+      { "text": "Prefer sources that name experts and link to evidence", "isCorrect": true, "explanation": "Named, verifiable sources are stronger than vague attribution." },
+      { "text": "Assume the medical body is lying", "isCorrect": false, "explanation": "Assuming the opposite without evidence is not reasoning." },
+      { "text": "Share the article so more people see it", "isCorrect": false, "explanation": "Sharing unverified claims spreads potential misinformation." }
+    ],
+    "takeaway": "Vague attribution to \"experts\" is weak; prefer named, verifiable sources."
+  },
+  {
+    "id": "gq14",
+    "skillTag": "Bias Detection",
+    "difficulty": 1,
+    "scenario": "You strongly dislike a public figure. A story appears that portrays them negatively. You have not checked other sources.",
+    "evidenceCards": [
+      { "title": "Negative story", "sourceType": "News/opinion", "snippet": "Describes the figure in harsh terms; quotes critics; no response from the figure.", "credibilityHint": "One-sided" }
+    ],
+    "options": [
+      { "text": "Believe it because it matches your view of the figure", "isCorrect": false, "explanation": "That is confirmation bias." },
+      { "text": "Check whether the figure was given a chance to respond and seek other sources", "isCorrect": true, "explanation": "Fairness and multiple sources improve judgment." },
+      { "text": "Assume they are guilty because you dislike them", "isCorrect": false, "explanation": "Personal dislike is not evidence." },
+      { "text": "Share it to show others how bad they are", "isCorrect": false, "explanation": "Sharing one-sided content can spread bias." }
+    ],
+    "takeaway": "When you have strong feelings, extra effort to check multiple sources is important."
+  },
+  {
+    "id": "gq15",
+    "skillTag": "Hypothesis Testing",
+    "difficulty": 2,
+    "scenario": "Someone says a policy failed because \"look at what happened after.\" You know many other factors changed at the same time.",
+    "evidenceCards": [
+      { "title": "Claim", "sourceType": "Opinion", "snippet": "Policy X was introduced in 2020. In 2021 we saw Y. So X caused Y.", "credibilityHint": "Post hoc" },
+      { "title": "Timeline", "sourceType": "Factual", "snippet": "2020: X introduced; also A, B, C changed. 2021: Y; also D, E changed.", "credibilityHint": "Context" }
+    ],
+    "options": [
+      { "text": "Sequence proves causation", "isCorrect": false, "explanation": "Correlation in time does not prove causation; other factors may explain Y." },
+      { "text": "Consider other factors that could explain Y before blaming X", "isCorrect": true, "explanation": "Hypothesis testing requires considering alternative explanations." },
+      { "text": "If X happened before Y, X caused Y", "isCorrect": false, "explanation": "Temporal order is necessary but not sufficient for causation." },
+      { "text": "Ignore the timeline", "isCorrect": false, "explanation": "Context is essential for causal reasoning." }
+    ],
+    "takeaway": "After-the-fact correlation does not prove causation; consider confounding factors."
+  }
+]
