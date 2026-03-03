@@ -1,7 +1,10 @@
 # Next.js on Netlify — build from repo root.
-# Leave "Base directory" empty in Netlify Build settings.
+# Base directory in Netlify UI: empty or "."
+# Publish must be different from base (plugin errors if both are repo root).
 
 [build]
   command = "npm run build"
+  publish = ".next"
 
-# Let Netlify's Next.js runtime handle publish directory and routing (no need to set publish).
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
