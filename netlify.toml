@@ -6,6 +6,10 @@
 [build.environment]
   NODE_VERSION = "20"
 
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+  enabled = false
+
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
