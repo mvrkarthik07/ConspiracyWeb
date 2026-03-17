@@ -1,0 +1,67 @@
+[
+  {
+    "id": "sq1",
+    "prompt": "Most people can accurately tell whether a viral post is true or false.",
+    "categorySlug": "media",
+    "topicSlug": "misinformation",
+    "insight": "In many studies, people overestimate their ability to detect misinformation—especially when content aligns with their identity.",
+    "populationAgreePct": 34
+  },
+  {
+    "id": "sq2",
+    "prompt": "If a claim feels intuitive, it is probably correct.",
+    "categorySlug": "psychology",
+    "topicSlug": "cognitive-bias",
+    "insight": "Intuition is useful, but it’s also where confirmation bias and availability bias tend to show up most strongly.",
+    "populationAgreePct": 29
+  },
+  {
+    "id": "sq3",
+    "prompt": "A single expert opinion can outweigh multiple peer‑reviewed studies.",
+    "categorySlug": "science",
+    "topicSlug": "evidence-quality",
+    "insight": "Evidence is usually weighted by study design, replication, and synthesis (e.g. meta-analyses), not by how authoritative one person sounds.",
+    "populationAgreePct": 18
+  },
+  {
+    "id": "sq4",
+    "prompt": "News outlets usually report facts without framing or bias.",
+    "categorySlug": "media",
+    "topicSlug": "news-framing",
+    "insight": "Framing is often subtle: what is emphasized, what is omitted, and which voices are quoted can shape interpretation.",
+    "populationAgreePct": 26
+  },
+  {
+    "id": "sq5",
+    "prompt": "When two sides disagree, the truth is usually exactly in the middle.",
+    "categorySlug": "reasoning",
+    "topicSlug": "false-balance",
+    "insight": "“Both sides” can be a useful starting point, but evidence quality matters—sometimes one side is simply better supported.",
+    "populationAgreePct": 41
+  },
+  {
+    "id": "sq6",
+    "prompt": "If an event happened after a policy change, the policy probably caused it.",
+    "categorySlug": "reasoning",
+    "topicSlug": "causality",
+    "insight": "Temporal order is not enough for causation—confounders and alternative explanations need to be considered.",
+    "populationAgreePct": 37
+  },
+  {
+    "id": "sq7",
+    "prompt": "Official sources should be trusted unless there is specific evidence of error or manipulation.",
+    "categorySlug": "civics",
+    "topicSlug": "institutions",
+    "insight": "A practical approach is calibrated trust: prefer documented sources, then adjust confidence when specific issues are shown.",
+    "populationAgreePct": 52
+  },
+  {
+    "id": "sq8",
+    "prompt": "Sharing unverified claims is harmless if you add “not sure if true”.",
+    "categorySlug": "media",
+    "topicSlug": "sharing",
+    "insight": "Even hedged sharing can increase familiarity, and familiarity can increase perceived truth over time.",
+    "populationAgreePct": 24
+  }
+]
+

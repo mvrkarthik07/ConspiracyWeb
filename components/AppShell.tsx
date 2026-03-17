@@ -7,6 +7,7 @@ import { Input } from "@/components/ui";
 
 const navLinks = [
   { href: "/#browse-topics", label: "Topics" },
+  { href: "/explore", label: "Explore" },
   { href: "/categories", label: "Categories" },
   { href: "/game", label: "Game" },
 ];

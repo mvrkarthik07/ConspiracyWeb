@@ -45,7 +45,11 @@ export interface ArticleResult {
   snippet: string;
 }
 
-export type GameSkillTag = "Source Evaluation" | "Bias Detection" | "Evidence Weighting" | "Hypothesis Testing";
+export type GameSkillTag =
+  | "Source Evaluation"
+  | "Bias Detection"
+  | "Evidence Weighting"
+  | "Hypothesis Testing";
 
 export interface GameEvidenceCard {
   title: string;
@@ -76,36 +80,6 @@ export interface GameSessionState {
   startedAt: number;
 }
 
-export type LikertChoice =
-  | "Strongly Agree"
-  | "Agree"
-  | "Neutral"
-  | "Disagree"
-  | "Strongly Disagree";
-
-export interface SurveyQuestion {
-  id: string;
-  prompt: string;
-  categorySlug: string;
-  topicSlug: string;
-  insight: string;
-  populationAgreePct?: number;
-}
-
-export interface SurveyAnswer {
-  questionId: string;
-  choice: LikertChoice;
-  value: 1 | 2 | 3 | 4 | 5; // 1=Strongly Disagree ... 5=Strongly Agree
-  categorySlug: string;
-  topicSlug: string;
-}
-
-export interface SurveySessionResult {
-  startedAt: number;
-  finishedAt: number;
-  answers: SurveyAnswer[];
-}
-
 export interface UserSession {
   sessionId: string;
   cms12: Record<string, number>;
@@ -115,3 +89,4 @@ export interface UserSession {
   };
   completedAt: string; // ISO timestamp
 }
+

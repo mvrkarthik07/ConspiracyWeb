@@ -24,9 +24,29 @@ export default function GameLandingPage() {
           <li>• Score breakdown by skill: Source Evaluation, Bias Detection, Evidence Weighting, Hypothesis Testing</li>
           <li>• Tailored improvement tips at the end</li>
         </ul>
-        <Link href="/game/play" className="mt-10 inline-block">
-          <Button size="lg">Start game</Button>
-        </Link>
+        <div className="mt-10">
+          <p className="text-caption text-text-muted mb-3">Choose a mode</p>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <Link href="/game/play" className="block">
+              <Card interactive padding="lg" className="h-full">
+                <CardTitle as="h2">Classic Mode</CardTitle>
+                <CardDescription>Multiple-choice scenarios with correctness + skill scoring.</CardDescription>
+                <div className="mt-4">
+                  <Button size="lg">Start classic</Button>
+                </div>
+              </Card>
+            </Link>
+            <Link href="/game/survey" className="block">
+              <Card interactive padding="lg" className="h-full">
+                <CardTitle as="h2">Survey Mode</CardTitle>
+                <CardDescription>Likert-scale “how much do you agree?” questions + profile chart.</CardDescription>
+                <div className="mt-4">
+                  <Button size="lg" variant="secondary">Start survey</Button>
+                </div>
+              </Card>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -8,9 +8,9 @@ const baseStyles =
 
 const variantStyles: Record<ChipVariant, string> = {
   default:
-    "border-border bg-surface-light text-[var(--text-muted)] hover:bg-surface-lighter hover:text-[var(--text)]",
+    "border-white/15 bg-black text-[var(--text-muted)] hover:bg-white/5 hover:text-[var(--text)]",
   selected:
-    "border-accent/50 bg-accent-subtle text-accent",
+    "border-white/40 bg-white/10 text-white",
 };
 
 export interface ChipProps extends HTMLAttributes<HTMLSpanElement> {

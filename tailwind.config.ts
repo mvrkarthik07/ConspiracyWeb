@@ -12,26 +12,26 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#0a0c10",
-        panel: "#13171d",
+        background: "#000000",
+        panel: "#050505",
         surface: {
-          DEFAULT: "#161b22",
-          light: "#1c2229",
-          lighter: "#21262d",
-          muted: "#30363d",
+          DEFAULT: "#0b0b0b",
+          light: "#0f0f0f",
+          lighter: "#141414",
+          muted: "#1a1a1a",
         },
         border: {
-          DEFAULT: "rgba(240, 246, 252, 0.1)",
-          strong: "rgba(240, 246, 252, 0.18)",
+          DEFAULT: "rgba(255, 255, 255, 0.12)",
+          strong: "rgba(255, 255, 255, 0.22)",
         },
         text: {
-          DEFAULT: "#e6edf3",
-          muted: "#8b949e",
+          DEFAULT: "#f5f5f5",
+          muted: "rgba(245, 245, 245, 0.62)",
         },
         accent: {
-          DEFAULT: "#58a6ff",
-          muted: "#388bfd",
-          subtle: "rgba(56, 139, 253, 0.12)",
+          DEFAULT: "#ffffff",
+          muted: "rgba(255, 255, 255, 0.80)",
+          subtle: "rgba(255, 255, 255, 0.08)",
         },
         verdict: {
           true: "#3fb950",
@@ -67,7 +67,7 @@ const config: Config = {
       padding: { page: "1rem" },
       margin: { section: "2rem" },
       fontFamily: {
-        sans: ["Helvetica Neue", "Helvetica", "Arial", "system-ui", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        sans: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "monospace"],
       },
       fontSize: {
         display: [rem(40), { lineHeight: "1.15", letterSpacing: "-0.02em" }],

@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap");
+
+:root {
+  /* Backgrounds */
+  --bg-base: #000000; /* Pure black — no exceptions */
+  --bg-surface: #0a0a0a; /* Cards, panels */
+  --bg-overlay: #111111; /* Hover states, modals */
+  --bg-subtle: #1a1a1a; /* Input fields, table rows */
+
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: #999999;
+  --text-muted: #444444;
+  --text-dim: #2a2a2a; /* Disabled / placeholder */
+
+  /* Borders */
+  --border-default: #222222;
+  --border-active: #ffffff;
+  --border-subtle: #1a1a1a;
+
+  /* Accent */
+  --accent: #ffffff;
+  --accent-dim: rgba(255, 255, 255, 0.08);
+
+  /* Node graph */
+  --node-section: #ffffff;
+  --node-category: #888888;
+  --node-leaf: #333333;
+  --edge-default: rgba(255, 255, 255, 0.12);
+  --edge-active: rgba(255, 255, 255, 0.6);
+
+  /* Typography */
+  --font-sans: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  --font-label: "Inter", system-ui, -apple-system, Segoe UI, sans-serif;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+}
+

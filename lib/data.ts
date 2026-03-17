@@ -2,12 +2,14 @@ import categoriesData from "@/data/categories.json";
 import topicsData from "@/data/topics.json";
 import theoriesData from "@/data/theories.json";
 import gameQuestionsData from "@/data/game_questions.json";
-import type { Category, Topic, Theory, GameQuestion } from "@/lib/types";
+import surveyQuestionsData from "@/data/survey_questions.json";
+import type { Category, Topic, Theory, GameQuestion, SurveyQuestion } from "@/lib/types";
 
 const categories = categoriesData as Category[];
 const topics = topicsData as Topic[];
 const theories = theoriesData as Theory[];
 const gameQuestions = gameQuestionsData as GameQuestion[];
+const surveyQuestions = surveyQuestionsData as SurveyQuestion[];
 
 export function getCategories(): Category[] {
   return categories;
@@ -92,4 +94,13 @@ export function getGameQuestions(): GameQuestion[] {
 export function getRandomGameQuestions(count: number): GameQuestion[] {
   const shuffled = [...gameQuestions].sort(() => Math.random() - 0.5);
   return shuffled.slice(0, Math.min(count, gameQuestions.length));
+}
+
+export function getSurveyQuestions(): SurveyQuestion[] {
+  return surveyQuestions;
+}
+
+export function getRandomSurveyQuestions(count: number): SurveyQuestion[] {
+  const shuffled = [...surveyQuestions].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, Math.min(count, surveyQuestions.length));
 }

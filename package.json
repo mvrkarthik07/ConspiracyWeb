@@ -4,15 +4,24 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:api": "next dev -p 3000",
+    "dev:frontend": "npm run dev --prefix frontend -- --port 5173",
+    "dev:all": "concurrently -n api,web -c \"white,white\" \"npm run dev:api\" \"npm run dev:frontend\"",
     "build": "next build",
+    "build:frontend": "npm run build --prefix frontend",
     "start": "next start",
     "lint": "next lint",
     "generate:images": "node scripts/generate-images.cjs"
   },
   "dependencies": {
+    "framer-motion": "^12.38.0",
     "next": "^14.2.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-force-graph-2d": "^1.29.1",
+    "react-force-graph-3d": "^1.29.1",
+    "recharts": "^3.8.0",
+    "three": "^0.183.2"
   },
   "devDependencies": {
     "@netlify/plugin-nextjs": "^5.12.0",
@@ -20,6 +29,7 @@
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "autoprefixer": "^10.4.0",
+    "concurrently": "^9.2.1",
     "eslint": "^8.0.0",
     "eslint-config-next": "^14.2.0",
     "postcss": "^8.4.0",

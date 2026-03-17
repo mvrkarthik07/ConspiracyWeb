@@ -6,12 +6,27 @@ A searchable database of conspiracy theories in Singapore. Educational prototype
 
 ```bash
 npm install
-npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+- **Run full stack (SPA + API):** `npm run dev:all`
+- **Run API only (Next.js):** `npm run dev:api`
+- **Run frontend only (Vite SPA):** `npm run dev:frontend`
+
+Open:
+- SPA: `http://127.0.0.1:5173`
+- API: `http://localhost:3000/api/articles?query=test`
 
 - **Build for production:** `npm run build && npm start`
+- **Build SPA:** `npm run build:frontend`
+
+## Architecture (migration)
+
+This repo now contains:
+
+- **Vite SPA** in `frontend/` (React + TS + React Router). This is the “normal/standard” UI app.
+- **Next.js API** in `app/api/articles/route.ts` kept for `/api/articles` so the SPA can fetch web links without exposing keys.
+
+During development, the SPA proxies `/api/*` to the Next server (configured in `frontend/vite.config.ts`).
 
 ## Optional: env vars for “Related articles from the web”
 
@@ -59,6 +74,7 @@ GOOGLE_CSE_ID=your_cse_id
 ## Tech
 
 - Next.js 14 (App Router), TypeScript, TailwindCSS
+- Vite + React Router SPA in `frontend/`
 - Dark-mode-friendly UI, responsive (mobile-first), with loading/empty states
 
 ---
