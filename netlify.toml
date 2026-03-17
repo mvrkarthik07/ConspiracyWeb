@@ -1,3 +1,18 @@
+[build]
+  command = "npm ci && npm run build:frontend"
+  publish = "frontend/dist"
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
 # Next.js on Netlify — build from repo root.
 # Base directory in Netlify UI: empty or "."
 # Publish must be different from base (plugin errors if both are repo root).
