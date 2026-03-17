@@ -12,14 +12,3 @@
   from = "/*"
   to = "/index.html"
   status = 200
-
-# Next.js on Netlify — build from repo root.
-# Base directory in Netlify UI: empty or "."
-# Publish must be different from base (plugin errors if both are repo root).
-
-[build]
-  command = "npm run build"
-  publish = ".next"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
