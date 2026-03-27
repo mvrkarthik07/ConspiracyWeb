@@ -21,7 +21,7 @@ function DiagnosticsFooter() {
           <Row label="Survey status" value="ACTIVE" />
           <Row label="Total responses" value="LOADING" />
           <Row label="Questions" value="65" />
-          <Row label="Sections" value="3 (SG / ASIA / WORLDWIDE)" />
+          <Row label="Clusters" value="5 (POLITICAL / SECRETS / SCIENCE / ELITES / GEOPOLITICAL)" />
           <Row label="Node graph" value="LIVE" />
           <Row label="DB status" value="CONNECTED" />
           <Row label="Last update" value={stamp} />

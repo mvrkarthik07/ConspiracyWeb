@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Next.js API Server",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev:api"],
+      "port": 3000
+    },
+    {
+      "name": "Vite SPA (Frontend)",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev:frontend"],
+      "port": 5173
+    },
+    {
+      "name": "Full Stack (API + Frontend)",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev:all"],
+      "port": 5173
+    }
+  ]
+}
