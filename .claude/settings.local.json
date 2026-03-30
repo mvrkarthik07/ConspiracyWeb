@@ -3,7 +3,11 @@
     "allow": [
       "mcp__Claude_Preview__preview_start",
       "Bash(npx tsc:*)",
-      "Bash(brew install:*)"
+      "Bash(brew install:*)",
+      "Bash(pdftotext -layout \"/Users/prashantagrawal/Downloads/WKW Conspiracy Website Project.pdf\" -)",
+      "Bash(/usr/local/bin/node --version)",
+      "Bash(brew reinstall:*)",
+      "Bash(pdftotext -layout \"/Users/prashantagrawal/Downloads/WKW Conspiracy Project \\(1\\).pdf\" -)"
     ]
   }
 }

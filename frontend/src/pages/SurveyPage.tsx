@@ -2,11 +2,11 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { surveyItems, THEMES, type SurveyItem, type ThemeId } from "@/shared/surveyItems";
 import { THEME_COLORS } from "@/shared/themeColors";
-import { scoreCMS12, interpretCMS12 } from "@/shared/scoring";
+import { scoreCMS12, totalCMS12, interpretCMS12, getPersonalityType } from "@/shared/scoring";
 import { appendUserSession, createSessionId } from "@/shared/persistence";
 import type { UserSession } from "@/shared/types";
 
-type Step = "cms12" | "cms12Result" | "sectionSelect" | "survey" | "results";
+type Step = "cms12" | "personalityResult" | "sectionSelect" | "survey" | "results";
 type ThemeChoice = ThemeId | "RANDOM";
 
 const CMS12_ITEMS: { id: string; text: string; reverse?: boolean }[] = [
@@ -131,11 +131,18 @@ export function SurveyPage() {
   const focusItemId = sp.get("itemId");
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  const [step, setStep] = useState<Step>("cms12");
+  // If ?direct=true&theme=XXX, skip CMS12 and go straight to that cluster's survey
+  const isDirect = sp.get("direct") === "true";
+  const directTheme = sp.get("theme") as ThemeChoice | null;
+
+  const [step, setStep] = useState<Step>(() => {
+    if (isDirect && directTheme) return "sectionSelect";
+    return "cms12";
+  });
   const [cmsIndex, setCmsIndex] = useState(0);
   const [cmsResponses, setCmsResponses] = useState<Record<string, number>>({});
 
-  const [themeChoice, setThemeChoice] = useState<ThemeChoice | null>(null);
+  const [themeChoice, setThemeChoice] = useState<ThemeChoice | null>(directTheme ?? null);
   const [items, setItems] = useState<SurveyItem[]>([]);
   const [surveyIndex, setSurveyIndex] = useState(0);
   const [surveyResponses, setSurveyResponses] = useState<Record<string, number | null>>({});
@@ -150,9 +157,14 @@ export function SurveyPage() {
 
   const cmsCurrent = CMS12_ITEMS[cmsIndex];
   const cmsScore = useMemo(() => {
-    if (Object.keys(cmsResponses).length !== CMS12_ITEMS.length) return null;
+    if (isDirect || Object.keys(cmsResponses).length !== CMS12_ITEMS.length) return null;
     return scoreCMS12(cmsResponses);
-  }, [cmsResponses]);
+  }, [cmsResponses, isDirect]);
+
+  const cmsTotal = useMemo(() => {
+    if (isDirect || Object.keys(cmsResponses).length !== CMS12_ITEMS.length) return null;
+    return totalCMS12(cmsResponses);
+  }, [cmsResponses, isDirect]);
 
   const startTheme = (choice: ThemeChoice) => {
     setThemeChoice(choice);
@@ -277,7 +289,7 @@ export function SurveyPage() {
                 disabled={!canNext}
                 color="#ffffff"
                 onClick={() => {
-                  if (cmsIndex + 1 >= CMS12_ITEMS.length) setStep("cms12Result");
+                  if (cmsIndex + 1 >= CMS12_ITEMS.length) setStep("personalityResult");
                   else setCmsIndex((i) => i + 1);
                 }}
               />
@@ -288,55 +300,78 @@ export function SurveyPage() {
     );
   }
 
-  // ── CMS12 Result ────────────────────────────────────────────────────────
+  // ── Personality Result ───────────────────────────────────────────────────
 
-  if (step === "cms12Result" && cmsScore !== null) {
+  if (step === "personalityResult" && cmsScore !== null && cmsTotal !== null) {
+    const personality = getPersonalityType(cmsTotal);
     const tendency = interpretCMS12(cmsScore);
-    const pct = Math.round((cmsScore / 7) * 100);
+    const pct = Math.round((cmsTotal / 84) * 100);
     return (
       <div style={S.page}>
         <div style={S.card}>
-          <div style={{ height: 3, background: `linear-gradient(90deg, #fff ${pct}%, #1a1a1a ${pct}%)` }} />
-          <div style={S.cardHeader()}>
-            <span style={S.label()}>YOUR CONSPIRACY MENTALITY SCORE</span>
+          <div style={{ height: 4, background: `linear-gradient(90deg, ${personality.color} 0%, ${personality.color} ${pct}%, #1a1a1a ${pct}%)` }} />
+          <div style={S.cardHeader(personality.color)}>
+            <div>
+              <span style={S.label(personality.color)}>YOUR CONSPIRACY PERSONALITY</span>
+              <p style={{ margin: "4px 0 0", fontSize: 11, color: "#555" }}>CMS12 Belief Inventory — Complete</p>
+            </div>
             <span style={{ fontSize: 10, color: "#444", letterSpacing: "0.1em" }}>CMS12</span>
           </div>
           <div style={S.cardBody}>
-            {/* Score display */}
-            <div style={{ textAlign: "center", padding: "16px 0 28px" }}>
-              <div style={{ fontSize: 64, fontWeight: 700, color: "#fff", lineHeight: 1 }}>
-                {(Math.round(cmsScore * 10) / 10).toFixed(1)}
+
+            {/* Personality type hero */}
+            <div style={{
+              background: `${personality.color}0d`,
+              border: `1px solid ${personality.color}33`,
+              borderLeft: `3px solid ${personality.color}`,
+              borderRadius: 4,
+              padding: "20px 24px",
+              marginBottom: 24,
+            }}>
+              <div style={{ fontSize: 10, color: personality.color, letterSpacing: "0.14em", marginBottom: 6 }}>
+                {personality.range} POINTS
               </div>
-              <div style={{ fontSize: 12, color: "#555", marginTop: 6, letterSpacing: "0.1em" }}>
-                OUT OF 7.0
+              <div style={{ fontSize: 24, fontWeight: 700, color: "#fff", marginBottom: 12 }}>
+                {personality.title}
+              </div>
+              <p style={{ fontSize: 13, color: "#aaa", lineHeight: 1.7, margin: "0 0 16px" }}>
+                {personality.description}
+              </p>
+              <div style={{
+                background: "#0d0d0d",
+                borderRadius: 3,
+                padding: "12px 16px",
+                borderLeft: `2px solid ${personality.color}66`,
+              }}>
+                <span style={{ fontSize: 10, color: personality.color, letterSpacing: "0.1em" }}>TIP  </span>
+                <span style={{ fontSize: 12, color: "#777" }}>{personality.tip}</span>
               </div>
             </div>
 
-            {/* Score bar */}
-            <div style={{ background: "#111", borderRadius: 2, height: 6, margin: "0 0 24px" }}>
-              <div
-                style={{
-                  width: `${pct}%`,
-                  height: "100%",
-                  background: "linear-gradient(90deg, #333, #fff)",
-                  borderRadius: 2,
-                  transition: "width 1s ease",
-                }}
-              />
+            {/* Score stats */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 24 }}>
+              <div style={{ background: "#0d0d0d", border: "1px solid #1a1a1a", borderRadius: 3, padding: "14px 16px", textAlign: "center" }}>
+                <div style={{ fontSize: 9, color: "#444", letterSpacing: "0.12em", marginBottom: 8 }}>TOTAL SCORE</div>
+                <div style={{ fontSize: 26, fontWeight: 700, color: personality.color }}>{cmsTotal}</div>
+                <div style={{ fontSize: 9, color: "#333", marginTop: 4 }}>OUT OF 84</div>
+              </div>
+              <div style={{ background: "#0d0d0d", border: "1px solid #1a1a1a", borderRadius: 3, padding: "14px 16px", textAlign: "center" }}>
+                <div style={{ fontSize: 9, color: "#444", letterSpacing: "0.12em", marginBottom: 8 }}>AVG RATING</div>
+                <div style={{ fontSize: 26, fontWeight: 700, color: personality.color }}>{(Math.round(cmsScore * 10) / 10).toFixed(1)}</div>
+                <div style={{ fontSize: 9, color: "#333", marginTop: 4 }}>OUT OF 7.0</div>
+              </div>
             </div>
 
             <StatRow label="TENDENCY" value={tendency.toUpperCase()} />
-            <StatRow label="SCORE" value={`${(Math.round(cmsScore * 10) / 10).toFixed(1)} / 7.0`} />
 
             <p style={{ marginTop: 20, fontSize: 12, color: "#555", lineHeight: 1.6 }}>
-              This score reflects how strongly you tend to see hidden forces behind world events.
-              Now choose a belief cluster to explore specific theories.
+              Now explore a specific belief cluster to see how your views compare on targeted theories.
             </p>
 
-            <div style={{ marginTop: 28, display: "flex", justifyContent: "flex-end" }}>
+            <div style={{ marginTop: 24, display: "flex", justifyContent: "flex-end" }}>
               <ActionButton
-                label="CHOOSE A CLUSTER →"
-                color="#ffffff"
+                label="EXPLORE A CLUSTER →"
+                color={personality.color}
                 onClick={() => setStep("sectionSelect")}
               />
             </div>
@@ -530,7 +565,8 @@ export function SurveyPage() {
 
   // ── Results ─────────────────────────────────────────────────────────────
 
-  if (step === "results" && results && cmsScore !== null) {
+  if (step === "results" && results && (cmsScore !== null || isDirect)) {
+    const effectiveCmsScore = cmsScore ?? 4;
     const sessionId = createSessionId().slice(-4).toUpperCase();
     const themeMeta =
       themeChoice && themeChoice !== "RANDOM"
@@ -541,8 +577,8 @@ export function SurveyPage() {
 
     const text = buildDiagnostic({
       sessionId,
-      cms12Score: Math.round(cmsScore * 10) / 10,
-      tendency: interpretCMS12(cmsScore).toUpperCase(),
+      cms12Score: Math.round(effectiveCmsScore * 10) / 10,
+      tendency: interpretCMS12(effectiveCmsScore).toUpperCase(),
       themeLabel,
       total: items.length,
       completed: results.answeredCount,
@@ -577,7 +613,7 @@ export function SurveyPage() {
             >
               <ScoreTile
                 label="CMS12 SCORE"
-                value={`${(Math.round(cmsScore * 10) / 10).toFixed(1)} / 7.0`}
+                value={isDirect ? "N/A" : `${(Math.round(effectiveCmsScore * 10) / 10).toFixed(1)} / 7.0`}
                 accent={cfg?.text}
               />
               <ScoreTile
