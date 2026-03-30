@@ -82,8 +82,9 @@ export interface GameSessionState {
 
 export interface UserSession {
   sessionId: string;
+  theme?: string;            // which cluster was surveyed (e.g. "political")
   cms12: Record<string, number>;
-  cms12Score: number;
+  cms12Score: number | null;
   sectionResponses: {
     [itemId: string]: number | null; // 1–7 or null (skipped)
   };

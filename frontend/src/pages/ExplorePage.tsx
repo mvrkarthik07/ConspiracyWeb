@@ -297,7 +297,7 @@ export function ExplorePage() {
             </div>
           </div>
           <Link
-            to={`/game/survey?theme=${themeParam}`}
+            to={`/game/survey?direct=true&theme=${themeParam}`}
             style={{
               border: `1px solid ${cfg?.border}`,
               color: cfg?.text,

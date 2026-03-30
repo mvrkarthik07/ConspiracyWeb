@@ -210,18 +210,37 @@ export function SurveyPage() {
     return { radar, sectionAverage, topAgreed, answeredCount: answered.length };
   }, [items, step, surveyResponses]);
 
+  // Save CMS12 personality result when it's computed
+  const [cmsSaved, setCmsSaved] = useState(false);
   useEffect(() => {
-    if (step !== "results") return;
-    if (cmsScore === null) return;
+    if (step !== "personalityResult" || cmsSaved || cmsScore === null) return;
     const session: UserSession = {
       sessionId: createSessionId(),
+      theme: "cms12",
       cms12: cmsResponses,
       cms12Score: cmsScore,
-      sectionResponses: surveyResponses,
+      sectionResponses: {},
       completedAt: new Date().toISOString(),
     };
     appendUserSession(session);
-  }, [cmsResponses, cmsScore, step, surveyResponses]);
+    setCmsSaved(true);
+  }, [step, cmsSaved, cmsScore, cmsResponses]);
+
+  // Save cluster survey results
+  const [surveySaved, setSurveySaved] = useState(false);
+  useEffect(() => {
+    if (step !== "results" || surveySaved) return;
+    const session: UserSession = {
+      sessionId: createSessionId(),
+      theme: themeChoice && themeChoice !== "RANDOM" ? themeChoice : undefined,
+      cms12: cmsResponses,
+      cms12Score: cmsScore ?? null,
+      sectionResponses: surveyResponses as Record<string, number | null>,
+      completedAt: new Date().toISOString(),
+    };
+    appendUserSession(session);
+    setSurveySaved(true);
+  }, [step, surveySaved, themeChoice, cmsResponses, cmsScore, surveyResponses]);
 
   // Accent colour for current theme (fallback white for CMS12)
   const accentColor =
@@ -565,7 +584,7 @@ export function SurveyPage() {
 
   // ── Results ─────────────────────────────────────────────────────────────
 
-  if (step === "results" && results && (cmsScore !== null || isDirect)) {
+  if (step === "results" && results) {
     const effectiveCmsScore = cmsScore ?? 4;
     const sessionId = createSessionId().slice(-4).toUpperCase();
     const themeMeta =

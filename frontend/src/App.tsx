@@ -71,11 +71,6 @@ function Shell({ children }: { children: React.ReactNode }) {
             <span style={{ color: "var(--border-default)" }}>|</span>
             <NavLink to="/explore">EXPLORE</NavLink>
           </nav>
-          <div className="flex items-center justify-end">
-            <Link className="terminal-btn-primary whitespace-nowrap" to="/game/survey">
-              ENTER SURVEY →
-            </Link>
-          </div>
         </div>
       </header>
       <main className="mx-auto max-w-6xl px-5 py-8">{children}</main>
