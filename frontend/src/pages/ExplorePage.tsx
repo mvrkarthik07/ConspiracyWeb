@@ -91,7 +91,16 @@ export function ExplorePage() {
       .catch(() => setArticles([]));
   }, [themeParam, category, framing, themeMeta]);
 
+  // ── Auto-redirect: skip framing selection, default to "belief" ──────────
+  useEffect(() => {
+    if (themeParam && category && !framing) {
+      setSp({ theme: themeParam, category, framing: "belief" }, { replace: true });
+    }
+  }, [themeParam, category, framing, setSp]);
+
   // ── Layer 1: theme grid ──────────────────────────────────────────────────
+
+  if (themeParam && category && !framing) return null;
 
   if (!themeParam) {
     return (
@@ -199,57 +208,6 @@ export function ExplorePage() {
                 />
               );
             })}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // ── Layer 3: framing selection ───────────────────────────────────────────
-
-  if (themeParam && category && !framing) {
-    return (
-      <div style={page}>
-        <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
-          <Breadcrumb
-            parts={[
-              { label: "EXPLORE", href: "/explore" },
-              { label: themeMeta?.short ?? themeParam, href: `/explore?theme=${themeParam}` },
-              { label: category },
-            ]}
-          />
-
-          <div
-            style={{
-              borderLeft: `3px solid ${cfg?.border}`,
-              paddingLeft: 16,
-              marginBottom: 32,
-            }}
-          >
-            <div style={{ fontSize: 10, color: cfg?.text, letterSpacing: "0.14em" }}>
-              {themeMeta?.short}
-            </div>
-            <div style={{ fontSize: 18, color: "#ddd", marginTop: 6, fontWeight: 600 }}>
-              {category}
-            </div>
-            <div style={{ fontSize: 11, color: "#555", marginTop: 6 }}>
-              {items.length} belief items in this sub-cluster
-            </div>
-          </div>
-
-          <h2 style={{ fontSize: 10, color: "#444", letterSpacing: "0.14em", margin: "0 0 14px" }}>
-            CHOOSE A FRAMING LENS
-          </h2>
-          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            {FRAMINGS.map((f) => (
-              <FramingCard
-                key={f.id}
-                label={f.label}
-                color={cfg?.text ?? "#fff"}
-                borderColor={cfg?.border ?? "#fff"}
-                onClick={() => setSp({ theme: themeParam, category, framing: f.id })}
-              />
-            ))}
           </div>
         </div>
       </div>
