@@ -327,7 +327,6 @@ export function ExplorePage() {
                     item={it}
                     accentColor={cfg?.text ?? "#fff"}
                     accentBorder={cfg?.border ?? "#fff"}
-                    accentFill={cfg?.fill ?? "transparent"}
                     agreePct={ar.pct}
                   />
                 );
@@ -406,12 +405,11 @@ export function ExplorePage() {
 // ── Theory card with expandable write-up ──────────────────────────────────
 
 function TheoryCard({
-  item, accentColor, accentBorder, accentFill, agreePct,
+  item, accentColor, accentBorder, agreePct,
 }: {
   item: import("@/shared/surveyItems").SurveyItem;
   accentColor: string;
   accentBorder: string;
-  accentFill: string;
   agreePct: number | null;
 }) {
   const [expanded, setExpanded] = useState(false);

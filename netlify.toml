@@ -1,5 +1,5 @@
 [build]
-  command = "npm ci && npm ci --prefix frontend && npm run build:frontend"
+  command = "npm ci --loglevel verbose && npm ci --prefix frontend --loglevel verbose && npm run build:frontend --loglevel verbose"
   publish = "frontend/dist"
   functions = "netlify/functions"
 

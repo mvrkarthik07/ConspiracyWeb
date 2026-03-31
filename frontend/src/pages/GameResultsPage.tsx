@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { loadUserSessions } from "@/shared/persistence";
 import { THEMES } from "@/shared/surveyItems";
 import { THEME_COLORS } from "@/shared/themeColors";
-import { getPersonalityType, interpretCMS12, totalCMS12 } from "@/shared/scoring";
+import { getPersonalityType, totalCMS12 } from "@/shared/scoring";
 import type { UserSession } from "@/shared/types";
 
 function avg(vals: number[]) {
