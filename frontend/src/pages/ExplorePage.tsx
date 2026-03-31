@@ -639,37 +639,3 @@ function SubClusterCard({
     </button>
   );
 }
-
-function FramingCard({
-  label, color, borderColor, onClick,
-}: {
-  label: string;
-  color: string;
-  borderColor: string;
-  onClick: () => void;
-}) {
-  const [hover, setHover] = useState(false);
-  return (
-    <button
-      onClick={onClick}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-      style={{
-        background: hover ? `${color}0e` : "#0a0a0a",
-        border: `1px solid ${hover ? borderColor : "#1e1e1e"}`,
-        borderRadius: 4,
-        padding: "16px 20px",
-        textAlign: "left",
-        cursor: "pointer",
-        width: "100%",
-        transition: "all 0.15s",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-      }}
-    >
-      <span style={{ fontSize: 13, color: hover ? color : "#888" }}>{label}</span>
-      <span style={{ color: hover ? color : "#333", fontSize: 16 }}>→</span>
-    </button>
-  );
-}
