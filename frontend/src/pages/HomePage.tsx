@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import ForceGraph2D, { type ForceGraphMethods } from "react-force-graph-2d";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { surveyItems, THEMES, type ThemeId } from "@/shared/surveyItems";
 import { THEME_COLORS } from "@/shared/themeColors";
+import { toQuestion } from "@/shared/phrasing";
 
 // Arc layout: slight wave so it doesn't look like a flat list
 const THEME_ANCHORS: Record<ThemeId, { x: number; y: number }> = {
@@ -184,6 +185,29 @@ export function HomePage() {
   const rafRef = useRef<number | null>(null);
   const lastTRef = useRef<number>(0);
   const didFitRef = useRef(false);
+
+  // Welcome intro modal — show once per browser session, OR whenever
+  // ?about=1 is in the URL (so the navbar "ABOUT" link can re-open it).
+  const [sp, setSp] = useSearchParams();
+  const aboutParam = sp.get("about") === "1";
+  const [showIntro, setShowIntro] = useState(() => {
+    if (typeof window === "undefined") return false;
+    if (aboutParam) return true;
+    return sessionStorage.getItem("conspiracyweb-intro-dismissed") !== "1";
+  });
+  // Re-open whenever ?about=1 appears
+  useEffect(() => {
+    if (aboutParam) setShowIntro(true);
+  }, [aboutParam]);
+  const dismissIntro = () => {
+    sessionStorage.setItem("conspiracyweb-intro-dismissed", "1");
+    setShowIntro(false);
+    if (aboutParam) {
+      const next = new URLSearchParams(sp);
+      next.delete("about");
+      setSp(next, { replace: true });
+    }
+  };
   const thetaRef = useRef(0);
 
   const MIN_ZOOM = 1.2;
@@ -251,11 +275,149 @@ export function HomePage() {
   }, []);
 
   return (
+    <div style={{ width: "100%" }}>
     <div
       ref={rootRef}
       className="relative"
       style={{ width: "100%", overflow: "hidden", height: "calc(100vh - 72px)" }}
     >
+      {/* Welcome intro modal */}
+      {showIntro && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: "rgba(0,0,0,0.85)",
+            backdropFilter: "blur(6px)",
+            zIndex: 100,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: 20,
+            fontFamily: "var(--font-sans)",
+          }}
+        >
+          <div
+            style={{
+              maxWidth: 640,
+              width: "100%",
+              maxHeight: "85vh",
+              overflowY: "auto",
+              background: "#0a0a0a",
+              border: "1px solid #2a2a2a",
+              borderLeft: "3px solid #60a5fa",
+              borderRadius: 4,
+              padding: "32px 36px",
+              color: "#fff",
+              boxShadow: "0 20px 60px rgba(0,0,0,0.6)",
+            }}
+          >
+            <div style={{ display: "flex", gap: 4, marginBottom: 20 }}>
+              {(["political", "secrets", "science", "elites", "geopolitical"] as ThemeId[]).map((id) => (
+                <div
+                  key={id}
+                  style={{
+                    height: 2,
+                    flex: 1,
+                    background: THEME_COLORS[id].border,
+                    boxShadow: `0 0 8px ${THEME_COLORS[id].glow}`,
+                  }}
+                />
+              ))}
+            </div>
+
+            <div style={{ fontSize: 12, color: "#60a5fa", letterSpacing: "0.18em", marginBottom: 12 }}>
+              EVERYTHING BEGINS FROM A QUESTION
+            </div>
+            <h2 style={{ fontSize: 26, fontWeight: 700, color: "#fff", margin: "0 0 18px", lineHeight: 1.25 }}>
+              Welcome to a new world of questions you may never have thought of.
+            </h2>
+
+            <p style={{ fontSize: 15, color: "#fff", lineHeight: 1.7, margin: "0 0 14px" }}>
+              Built by <strong style={{ color: "#60a5fa" }}>CATOS</strong> and{" "}
+              <strong style={{ color: "#60a5fa" }}>IN-Cube</strong>, this project examines
+              the fascinating and often complex world of conspiracy theories in South-East
+              Asia and beyond. We invite you to explore these narratives with us as we
+              strip back the layers and dissect their underlying mechanics — to see how
+              they take root in the public imagination and impact our communities.
+            </p>
+            <p style={{ fontSize: 15, color: "#fff", lineHeight: 1.7, margin: "0 0 14px" }}>
+              Our goal is to provide you with clarity to navigate an increasingly
+              complicated information environment. By measuring speculative claims
+              against scientific consensus and historical records, we provide a
+              foundation for separating myth from reality.
+            </p>
+            <p style={{ fontSize: 14, color: "#bbb", lineHeight: 1.7, margin: "0 0 6px", fontStyle: "italic" }}>
+              Your entry into this database confirms your engagement with a research
+              project that values safety, transparency, and the absolute integrity of facts.
+            </p>
+
+            <div
+              style={{
+                marginTop: 22,
+                paddingTop: 20,
+                borderTop: "1px solid #1f1f1f",
+              }}
+            >
+              <div style={{ fontSize: 12, color: "#bbb", letterSpacing: "0.14em", marginBottom: 10 }}>
+                WHAT IS A CONSPIRACY THEORY?
+              </div>
+              <p style={{ fontSize: 14, color: "#ddd", lineHeight: 1.7, margin: "0 0 10px" }}>
+                Conspiracy theories are explanations that attribute events, decisions, or
+                outcomes to secret coordination by individuals or groups, rather than to
+                widely accepted public accounts. The Oxford English Dictionary defines a
+                conspiracy as a secret plot or agreement between two or more parties for
+                an illegal or dishonest purpose. These theories can emerge across many
+                contexts — politics, public health, science, and major world events —
+                often taking shape when people search for patterns, face limited
+                information, or begin to question official narratives.
+              </p>
+              <p style={{ fontSize: 14, color: "#ddd", lineHeight: 1.7, margin: "0 0 10px" }}>
+                While conspiracy theories have existed for centuries, they spread more
+                rapidly in today's media environment, where claims can circulate widely
+                before being verified. Their appeal often lies in how they simplify
+                complex issues and tap into broader concerns such as trust, uncertainty,
+                and power.
+              </p>
+              <p style={{ fontSize: 14, color: "#ddd", lineHeight: 1.7, margin: 0 }}>
+                Explore this site to uncover the stories behind popular urban legends,
+                myths, and conspiracy theories — and decide for yourself what holds up,
+                what falls apart, and why these narratives continue to capture attention
+                today.
+              </p>
+              <div style={{ marginTop: 12, fontSize: 10, color: "#666", lineHeight: 1.6 }}>
+                Sources:{" "}
+                <a href="https://www.oed.com/dictionary/conspiracy_n" target="_blank" rel="noreferrer" style={{ color: "#888", textDecoration: "underline" }}>OED</a>
+                {" · "}
+                <a href="https://commission.europa.eu/strategy-and-policy/coronavirus-response/fighting-disinformation/identifying-conspiracy-theories_en" target="_blank" rel="noreferrer" style={{ color: "#888", textDecoration: "underline" }}>European Commission</a>
+                {" · "}
+                <a href="https://now.tufts.edu/2019/09/05/truth-about-conspiracy-theories" target="_blank" rel="noreferrer" style={{ color: "#888", textDecoration: "underline" }}>Tufts University</a>
+              </div>
+            </div>
+
+            <button
+              onClick={dismissIntro}
+              style={{
+                marginTop: 26,
+                width: "100%",
+                background: "#60a5fa",
+                color: "#000",
+                border: "1px solid #60a5fa",
+                borderRadius: 3,
+                padding: "12px 18px",
+                fontSize: 12,
+                letterSpacing: "0.16em",
+                fontWeight: 700,
+                cursor: "pointer",
+                fontFamily: "var(--font-sans)",
+              }}
+            >
+              START  →
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Hero overlay */}
       <div className="absolute left-5 top-6 z-20 max-w-xl pointer-events-none">
         {/* Animated accent bar */}
@@ -292,8 +454,8 @@ export function HomePage() {
           <br />
           of collective doubt.
         </h1>
-        <p style={{ marginTop: 10, fontSize: 12, color: "var(--text-secondary)", letterSpacing: "0.04em" }}>
-          5 belief clusters · {surveyItems.length} survey items
+        <p style={{ marginTop: 10, fontSize: 14, color: "#fff", letterSpacing: "0.04em" }}>
+          A database of beliefs across South-East Asia and beyond.
         </p>
         <div className="mt-5 flex gap-3 pointer-events-auto">
           <button
@@ -323,7 +485,6 @@ export function HomePage() {
       >
         {THEMES.map((t) => {
           const cfg = THEME_COLORS[t.id];
-          const count = surveyItems.filter((i) => i.theme === t.id).length;
           return (
             <div
               key={t.id}
@@ -338,19 +499,8 @@ export function HomePage() {
                 borderRadius: "2px 0 0 2px",
               }}
             >
-              <span style={{ fontSize: 9, color: cfg.text, letterSpacing: "0.12em" }}>
+              <span style={{ fontSize: 11, color: "#fff", letterSpacing: "0.12em" }}>
                 {t.short}
-              </span>
-              <span
-                style={{
-                  fontSize: 11,
-                  fontWeight: 700,
-                  color: cfg.border,
-                  minWidth: 18,
-                  textAlign: "right",
-                }}
-              >
-                {count}
               </span>
             </div>
           );
@@ -527,9 +677,9 @@ export function HomePage() {
         const themeId = hovered.theme;
         const themeMeta = THEMES.find((t) => t.id === themeId);
         const itemText = hovered.type === "leaf"
-          ? surveyItems.find((i) => i.id === hovered.itemId)?.text ?? "—"
+          ? toQuestion(surveyItems.find((i) => i.id === hovered.itemId)?.text ?? "—")
           : hovered.type === "category"
-          ? `${surveyItems.filter((i) => i.theme === themeId && i.category === hovered.category).length} belief items in this cluster`
+          ? hovered.category ?? "—"
           : themeMeta?.description ?? "—";
         const cfg = themeId ? THEME_COLORS[themeId] : null;
 
@@ -572,6 +722,117 @@ export function HomePage() {
           </div>
         );
       })()}
+    </div>
+
+    {/* ── About section: always visible on scroll ───────────────────────── */}
+    <section
+      style={{
+        background: "linear-gradient(180deg, #050505 0%, #0a0a0a 100%)",
+        borderTop: "1px solid #1a1a1a",
+        padding: "72px 24px 96px",
+        fontFamily: "var(--font-sans)",
+        color: "#fff",
+      }}
+    >
+      <div style={{ maxWidth: 880, margin: "0 auto" }}>
+        {/* Accent bar */}
+        <div style={{ display: "flex", gap: 4, marginBottom: 24 }}>
+          {(["political", "secrets", "science", "elites", "geopolitical"] as ThemeId[]).map((id) => (
+            <div
+              key={id}
+              style={{
+                height: 2,
+                width: 36,
+                background: THEME_COLORS[id].border,
+                boxShadow: `0 0 8px ${THEME_COLORS[id].glow}`,
+              }}
+            />
+          ))}
+        </div>
+
+        <p style={{ fontSize: 12, color: "#60a5fa", letterSpacing: "0.2em", margin: "0 0 14px" }}>
+          ABOUT THIS PROJECT
+        </p>
+        <h2 style={{ fontSize: 36, fontWeight: 700, color: "#fff", margin: "0 0 18px", lineHeight: 1.2 }}>
+          Documenting belief, not endorsing it.
+        </h2>
+        <p style={{ fontSize: 17, color: "#fff", lineHeight: 1.7, margin: "0 0 18px" }}>
+          This website was developed through a collaboration between{" "}
+          <strong style={{ color: "#60a5fa" }}>CATOS</strong> and{" "}
+          <strong style={{ color: "#60a5fa" }}>In Cube</strong> to document and examine
+          conspiracy theories circulating in South-East Asia and worldwide.
+        </p>
+        <p style={{ fontSize: 17, color: "#fff", lineHeight: 1.7, margin: 0 }}>
+          Our goal is to help <strong>counter the spread of misinformation</strong> and
+          better understand public perception of complex social issues — not to promote
+          or validate any of the claims catalogued here.
+        </p>
+
+        <hr style={{ border: 0, borderTop: "1px solid #1f1f1f", margin: "48px 0 36px" }} />
+
+        <p style={{ fontSize: 12, color: "#bbb", letterSpacing: "0.2em", margin: "0 0 14px" }}>
+          WHAT IS A CONSPIRACY THEORY?
+        </p>
+        <h3 style={{ fontSize: 26, fontWeight: 700, color: "#fff", margin: "0 0 18px", lineHeight: 1.3 }}>
+          A belief that significant events are the result of secret plots by powerful actors.
+        </h3>
+        <p style={{ fontSize: 16, color: "#ddd", lineHeight: 1.7, margin: "0 0 16px" }}>
+          Conspiracy theories often emerge where official information feels incomplete,
+          untrustworthy, or contradicts lived experience. They are not always wrong —
+          some have been later confirmed (Watergate, MK-Ultra) — but most rely on
+          assumptions of hidden coordination by powerful groups that resist scrutiny.
+        </p>
+        <p style={{ fontSize: 16, color: "#ddd", lineHeight: 1.7, margin: "0 0 16px" }}>
+          Studying them helps us see how <strong>trust, power, and uncertainty</strong>{" "}
+          shape what people believe — particularly in tightly-managed information
+          environments where speculation fills the gaps.
+        </p>
+        <p style={{ fontSize: 16, color: "#ddd", lineHeight: 1.7, margin: 0 }}>
+          The questions on this site are framed as{" "}
+          <em style={{ color: "#fff" }}>questions, not assertions</em>. Each belief
+          is paired with context on{" "}
+          <span style={{ color: "#60a5fa" }}>why people believe it</span>, the{" "}
+          <span style={{ color: "#f87171" }}>circumstances that make it plausible</span>,
+          and the <span style={{ color: "#4ade80" }}>local context</span> that shapes it.
+        </p>
+
+        <hr style={{ border: 0, borderTop: "1px solid #1f1f1f", margin: "48px 0 36px" }} />
+
+        <p style={{ fontSize: 12, color: "#bbb", letterSpacing: "0.2em", margin: "0 0 14px" }}>
+          HOW TO USE THIS SITE
+        </p>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            gap: 16,
+            marginTop: 16,
+          }}
+        >
+          {[
+            { label: "EXPLORE", desc: "Browse five clusters of belief and the questions inside them." },
+            { label: "SURVEY", desc: "Tell us where you stand — your responses build the picture." },
+            { label: "RESULTS", desc: "See your own beliefs mapped against the wider community." },
+          ].map((c) => (
+            <div
+              key={c.label}
+              style={{
+                background: "#0d0d0d",
+                border: "1px solid #1f1f1f",
+                borderLeft: "2px solid #60a5fa",
+                padding: "16px 18px",
+                borderRadius: 4,
+              }}
+            >
+              <div style={{ fontSize: 11, color: "#60a5fa", letterSpacing: "0.18em", marginBottom: 8 }}>
+                {c.label}
+              </div>
+              <div style={{ fontSize: 14, color: "#fff", lineHeight: 1.55 }}>{c.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
     </div>
   );
 }

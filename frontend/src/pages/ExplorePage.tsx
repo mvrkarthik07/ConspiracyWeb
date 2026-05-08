@@ -3,6 +3,8 @@ import { Link, useSearchParams } from "react-router-dom";
 import { surveyItems, THEMES, type SurveyItem, type ThemeId } from "@/shared/surveyItems";
 import { THEME_COLORS } from "@/shared/themeColors";
 import { getAgreeRateForItem } from "@/shared/persistence";
+import { toQuestion } from "@/shared/phrasing";
+import { fetchArticles } from "@/shared/articles";
 import type { ArticleResult } from "@/shared/types";
 
 const FRAMINGS = [
@@ -83,12 +85,13 @@ export function ExplorePage() {
 
   useEffect(() => {
     if (!themeParam || !category || !framing) return;
-    const q = `${themeMeta?.label ?? themeParam} ${category} ${framing} Singapore`;
+    const q = `${themeMeta?.label ?? themeParam} ${category} Singapore`;
     setArticles(null);
-    fetch(`/api/articles?query=${encodeURIComponent(q)}&count=6`)
-      .then((r) => r.json())
-      .then((d) => (Array.isArray(d) ? setArticles(d) : setArticles([])))
-      .catch(() => setArticles([]));
+    let cancelled = false;
+    fetchArticles(q, 6)
+      .then((d) => { if (!cancelled) setArticles(d); })
+      .catch(() => { if (!cancelled) setArticles([]); });
+    return () => { cancelled = true; };
   }, [themeParam, category, framing, themeMeta]);
 
   // ── Auto-redirect: skip framing selection, default to "belief" ──────────
@@ -107,7 +110,7 @@ export function ExplorePage() {
       <div style={page}>
         <div style={{ maxWidth: MAX_W, margin: "0 auto" }}>
           <Breadcrumb parts={[{ label: "EXPLORE" }]} />
-          <h2 style={{ fontSize: 11, color: "#444", letterSpacing: "0.14em", margin: "0 0 24px" }}>
+          <h2 style={{ fontSize: 13, color: "#bbb", letterSpacing: "0.14em", margin: "0 0 24px" }}>
             SELECT A BELIEF CLUSTER
           </h2>
 
@@ -120,14 +123,13 @@ export function ExplorePage() {
           >
             {THEMES.map((t) => {
               const c = THEME_COLORS[t.id];
-              const count = surveyItems.filter((i) => i.theme === t.id).length;
               return (
                 <ExploreThemeCard
                   key={t.id}
                   themeId={t.id}
                   short={t.short}
+                  question={(t as any).question}
                   description={t.description}
-                  count={count}
                   color={c.text}
                   borderColor={c.border}
                   fillColor={c.fill}
@@ -157,10 +159,15 @@ export function ExplorePage() {
           {/* Theme header + Direct Survey CTA */}
           <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 20, marginBottom: 32, flexWrap: "wrap" }}>
             <div style={{ borderLeft: `3px solid ${cfg?.border}`, paddingLeft: 16, flex: 1 }}>
-              <div style={{ fontSize: 10, color: cfg?.text, letterSpacing: "0.14em", marginBottom: 6 }}>
+              <div style={{ fontSize: 11, color: cfg?.text, letterSpacing: "0.14em", marginBottom: 8 }}>
                 {themeMeta?.short}
               </div>
-              <p style={{ fontSize: 13, color: "#666", margin: 0, lineHeight: 1.6, maxWidth: 500 }}>
+              {(themeMeta as any)?.question && (
+                <p style={{ fontSize: 19, color: "#fff", margin: "0 0 10px", lineHeight: 1.35, fontWeight: 600 }}>
+                  {(themeMeta as any).question}
+                </p>
+              )}
+              <p style={{ fontSize: 14, color: "#ccc", margin: 0, lineHeight: 1.6, maxWidth: 500 }}>
                 {themeMeta?.description}
               </p>
             </div>
@@ -189,18 +196,16 @@ export function ExplorePage() {
             </Link>
           </div>
 
-          <h2 style={{ fontSize: 10, color: "#444", letterSpacing: "0.14em", margin: "0 0 16px" }}>
+          <h2 style={{ fontSize: 12, color: "#bbb", letterSpacing: "0.14em", margin: "0 0 16px" }}>
             SUB-CLUSTERS
           </h2>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 10 }}>
             {categories.map((cat) => {
-              const cnt = surveyItems.filter((i) => i.theme === themeParam && i.category === cat).length;
               return (
                 <SubClusterCard
                   key={cat}
                   label={cat}
-                  count={cnt}
                   color={cfg?.text ?? "#fff"}
                   borderColor={cfg?.border ?? "#fff"}
                   fillColor={cfg?.fill ?? "transparent"}
@@ -273,8 +278,8 @@ export function ExplorePage() {
         <div style={{ display: "grid", gap: 16, gridTemplateColumns: "1fr 1fr" }}>
           {/* Items column */}
           <div>
-            <div style={{ fontSize: 10, color: "#444", letterSpacing: "0.14em", marginBottom: 14 }}>
-              BELIEF ITEMS ({items.length})
+            <div style={{ fontSize: 12, color: "#bbb", letterSpacing: "0.14em", marginBottom: 14 }}>
+              BELIEF ITEMS
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               {items.map((it) => {
@@ -294,7 +299,7 @@ export function ExplorePage() {
 
           {/* Articles column */}
           <div>
-            <div style={{ fontSize: 10, color: "#444", letterSpacing: "0.14em", marginBottom: 14 }}>
+            <div style={{ fontSize: 12, color: "#bbb", letterSpacing: "0.14em", marginBottom: 14 }}>
               RELATED READING
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
@@ -370,148 +375,233 @@ function TheoryCard({
   accentBorder: string;
   agreePct: number | null;
 }) {
-  const [expanded, setExpanded] = useState(false);
+  const [open, setOpen] = useState(false);
   const hasDetail = !!item.detail;
 
-  return (
-    <div
-      style={{
-        background: "#080808",
-        border: `1px solid ${expanded ? accentBorder + "44" : "#1a1a1a"}`,
-        borderRadius: 4,
-        overflow: "hidden",
-        transition: "border-color 0.2s",
-      }}
-    >
-      {/* Header row */}
-      <div style={{ padding: "14px 16px" }}>
-        <p style={{ fontSize: 13, color: "#ccc", margin: "0 0 12px", lineHeight: 1.6 }}>
-          {item.text}
-        </p>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8, flexWrap: "wrap" }}>
-          <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-            <Link
-              to={`/game/survey?theme=${item.theme}&direct=true`}
-              style={{
-                fontSize: 10,
-                color: accentColor,
-                letterSpacing: "0.1em",
-                textDecoration: "none",
-                border: `1px solid ${accentBorder}44`,
-                padding: "5px 10px",
-                borderRadius: 2,
-                fontFamily: "var(--font-sans)",
-              }}
-            >
-              TAKE SURVEY →
-            </Link>
-            {hasDetail && (
-              <button
-                onClick={() => setExpanded((v) => !v)}
-                style={{
-                  background: "transparent",
-                  border: `1px solid #2a2a2a`,
-                  color: expanded ? accentColor : "#555",
-                  fontSize: 10,
-                  letterSpacing: "0.1em",
-                  padding: "5px 10px",
-                  borderRadius: 2,
-                  cursor: "pointer",
-                  fontFamily: "var(--font-sans)",
-                }}
-              >
-                {expanded ? "HIDE ▲" : "READ MORE ▼"}
-              </button>
-            )}
-          </div>
-          <span style={{ fontSize: 10, color: "#444" }}>
-            {agreePct === null ? "NO DATA YET" : `${agreePct}% AGREE`}
-          </span>
-        </div>
-      </div>
+  // Lock body scroll while modal open
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
 
-      {/* Expandable detail section */}
-      {expanded && item.detail && (
-        <div
-          style={{
-            borderTop: `1px solid ${accentBorder}22`,
-            background: "#050505",
-            padding: "16px 20px",
-          }}
-        >
-          {/* Theory source — where the claim originates */}
-          {item.detail.theorySource && (
-            <div style={{
-              background: "#0d0d0d",
-              border: "1px solid #1e1e1e",
-              borderRadius: 3,
-              padding: "8px 12px",
-              marginBottom: 16,
-              display: "flex",
-              alignItems: "center",
-              gap: 8,
-              flexWrap: "wrap",
-            }}>
-              <span style={{ fontSize: 9, color: "#444", letterSpacing: "0.12em", flexShrink: 0 }}>
-                CLAIM ORIGIN
-              </span>
-              <a
-                href={item.detail.theorySource}
-                target="_blank"
-                rel="noreferrer"
+  return (
+    <>
+      <div
+        style={{
+          background: "#080808",
+          border: "1px solid #1a1a1a",
+          borderRadius: 4,
+          overflow: "hidden",
+          transition: "border-color 0.2s",
+        }}
+      >
+        <div style={{ padding: "14px 16px" }}>
+          <p style={{ fontSize: 15, color: "#fff", margin: "0 0 12px", lineHeight: 1.6, fontWeight: 600 }}>
+            {toQuestion(item.text)}
+          </p>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8, flexWrap: "wrap" }}>
+            <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+              <Link
+                to={`/game/survey?theme=${item.theme}&direct=true`}
                 style={{
                   fontSize: 10,
                   color: accentColor,
-                  textDecoration: "underline",
-                  textDecorationStyle: "dotted",
-                  wordBreak: "break-all",
+                  letterSpacing: "0.1em",
+                  textDecoration: "none",
+                  border: `1px solid ${accentBorder}44`,
+                  padding: "5px 10px",
+                  borderRadius: 2,
+                  fontFamily: "var(--font-sans)",
                 }}
               >
-                {item.detail.theorySource}
-              </a>
+                TAKE SURVEY →
+              </Link>
+              {hasDetail && (
+                <button
+                  onClick={() => setOpen(true)}
+                  style={{
+                    background: "transparent",
+                    border: `1px solid ${accentBorder}66`,
+                    color: accentColor,
+                    fontSize: 10,
+                    letterSpacing: "0.1em",
+                    padding: "5px 10px",
+                    borderRadius: 2,
+                    cursor: "pointer",
+                    fontFamily: "var(--font-sans)",
+                  }}
+                >
+                  READ MORE  ↗
+                </button>
+              )}
             </div>
-          )}
+            <span style={{ fontSize: 10, color: "#444" }}>
+              {agreePct === null ? "NO DATA YET" : `${agreePct}% AGREE`}
+            </span>
+          </div>
+        </div>
+      </div>
 
-          {/* Color-coded write-up sections: Blue / Red / Green */}
-          <WriteUpSection
-            label="GENERAL BELIEF"
-            text={item.detail.generalBelief}
-            color="#60a5fa"   /* blue */
-          />
-          <WriteUpSection
-            label="WHY PEOPLE BELIEVE THIS"
-            text={item.detail.whyBelieve}
-            color="#f87171"   /* red */
-          />
-          <WriteUpSection
-            label="SINGAPORE CONTEXT & EXAMPLES"
-            text={item.detail.context}
-            color="#4ade80"   /* green */
-          />
-          {item.detail.verification && (
-            <WriteUpSection
-              label="FACT CHECK"
-              text={item.detail.verification}
-              color="#a3a3a3"
-              isVerification
-            />
-          )}
-          {item.detail.source && (
-            <div style={{ marginTop: 10, paddingTop: 10, borderTop: "1px solid #111" }}>
-              <span style={{ fontSize: 9, color: "#444", letterSpacing: "0.12em" }}>SOURCE  </span>
-              <a
-                href={item.detail.source}
-                target="_blank"
-                rel="noreferrer"
-                style={{ fontSize: 10, color: "#a78bfa", wordBreak: "break-all", textDecoration: "underline" }}
+      {/* Modal popup — opens when READ MORE is clicked */}
+      {open && item.detail && (
+        <div
+          onClick={() => setOpen(false)}
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: "rgba(0,0,0,0.85)",
+            backdropFilter: "blur(6px)",
+            zIndex: 200,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: 20,
+            fontFamily: "var(--font-sans)",
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              maxWidth: 720,
+              width: "100%",
+              maxHeight: "88vh",
+              overflowY: "auto",
+              background: "#0a0a0a",
+              border: `1px solid ${accentBorder}44`,
+              borderLeft: `3px solid ${accentBorder}`,
+              borderRadius: 4,
+              boxShadow: "0 20px 60px rgba(0,0,0,0.7)",
+              position: "relative",
+            }}
+          >
+            {/* Sticky header */}
+            <div
+              style={{
+                position: "sticky",
+                top: 0,
+                background: "#0a0a0a",
+                borderBottom: "1px solid #1a1a1a",
+                padding: "18px 24px 14px",
+                display: "flex",
+                alignItems: "flex-start",
+                justifyContent: "space-between",
+                gap: 16,
+                zIndex: 1,
+              }}
+            >
+              <div style={{ flex: 1 }}>
+                <div style={{ fontSize: 10, color: accentColor, letterSpacing: "0.16em", marginBottom: 8 }}>
+                  THEORY DETAIL
+                </div>
+                <p style={{ fontSize: 18, color: "#fff", margin: 0, lineHeight: 1.45, fontWeight: 600 }}>
+                  {toQuestion(item.text)}
+                </p>
+              </div>
+              <button
+                onClick={() => setOpen(false)}
+                aria-label="Close"
+                style={{
+                  background: "transparent",
+                  border: "1px solid #2a2a2a",
+                  color: "#bbb",
+                  fontSize: 14,
+                  width: 32,
+                  height: 32,
+                  borderRadius: 3,
+                  cursor: "pointer",
+                  flexShrink: 0,
+                  lineHeight: 1,
+                  fontFamily: "var(--font-sans)",
+                }}
               >
-                {item.detail.source}
-              </a>
+                ✕
+              </button>
             </div>
-          )}
+
+            {/* Body */}
+            <div style={{ padding: "20px 24px 28px" }}>
+              {item.detail.theorySource && (
+                <div
+                  style={{
+                    background: "#0d0d0d",
+                    border: "1px solid #1e1e1e",
+                    borderRadius: 3,
+                    padding: "10px 14px",
+                    marginBottom: 18,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 10,
+                    flexWrap: "wrap",
+                  }}
+                >
+                  <span style={{ fontSize: 10, color: "#888", letterSpacing: "0.12em", flexShrink: 0 }}>
+                    CLAIM ORIGIN
+                  </span>
+                  <a
+                    href={item.detail.theorySource}
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      fontSize: 11,
+                      color: accentColor,
+                      textDecoration: "underline",
+                      textDecorationStyle: "dotted",
+                      wordBreak: "break-all",
+                    }}
+                  >
+                    {item.detail.theorySource}
+                  </a>
+                </div>
+              )}
+
+              <WriteUpSection
+                label="GENERAL BELIEF"
+                text={item.detail.generalBelief}
+                color="#60a5fa"
+              />
+              <WriteUpSection
+                label="WHY PEOPLE BELIEVE THIS"
+                text={item.detail.whyBelieve}
+                color="#f87171"
+              />
+              <WriteUpSection
+                label="SINGAPORE CONTEXT & EXAMPLES"
+                text={item.detail.context}
+                color="#4ade80"
+              />
+              {item.detail.verification && (
+                <WriteUpSection
+                  label="FACT CHECK"
+                  text={item.detail.verification}
+                  color="#a3a3a3"
+                  isVerification
+                />
+              )}
+              {item.detail.source && (
+                <div style={{ marginTop: 14, paddingTop: 14, borderTop: "1px solid #1a1a1a" }}>
+                  <span style={{ fontSize: 10, color: "#888", letterSpacing: "0.12em" }}>SOURCE  </span>
+                  <a
+                    href={item.detail.source}
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ fontSize: 11, color: "#a78bfa", wordBreak: "break-all", textDecoration: "underline" }}
+                  >
+                    {item.detail.source}
+                  </a>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
 
@@ -533,10 +623,10 @@ function WriteUpSection({
         {label}
       </div>
       <p style={{
-        fontSize: 12,
-        color: isVerification ? "#8a8a8a" : "#999",
+        fontSize: 14,
+        color: isVerification ? "#bbb" : "#e5e5e5",
         margin: 0,
-        lineHeight: 1.7,
+        lineHeight: 1.75,
       }}>
         {text}
       </p>
@@ -547,12 +637,12 @@ function WriteUpSection({
 // ── Card sub-components ────────────────────────────────────────────────────
 
 function ExploreThemeCard({
-  short, description, count, color, borderColor, fillColor, onClick,
+  short, question, description, color, borderColor, fillColor, onClick,
 }: {
   themeId: ThemeId;
   short: string;
+  question?: string;
   description: string;
-  count: number;
   color: string;
   borderColor: string;
   fillColor: string;
@@ -576,25 +666,25 @@ function ExploreThemeCard({
         transition: "all 0.15s",
       }}
     >
-      <div style={{ fontSize: 10, letterSpacing: "0.14em", color, marginBottom: 8 }}>
+      <div style={{ fontSize: 11, letterSpacing: "0.14em", color, marginBottom: 10 }}>
         {short}
       </div>
-      <p style={{ fontSize: 12, color: "#666", margin: "0 0 16px", lineHeight: 1.6 }}>
+      {question && (
+        <p style={{ fontSize: 17, color: "#fff", margin: "0 0 12px", lineHeight: 1.4, fontWeight: 600 }}>
+          {question}
+        </p>
+      )}
+      <p style={{ fontSize: 14, color: "#ccc", margin: 0, lineHeight: 1.6 }}>
         {description}
       </p>
-      <div style={{ display: "flex", alignItems: "baseline", gap: 5 }}>
-        <span style={{ fontSize: 22, fontWeight: 700, color }}>{count}</span>
-        <span style={{ fontSize: 9, color: "#444", letterSpacing: "0.1em" }}>ITEMS</span>
-      </div>
     </button>
   );
 }
 
 function SubClusterCard({
-  label, count, color, borderColor, fillColor, onClick,
+  label, borderColor, fillColor, onClick,
 }: {
   label: string;
-  count: number;
   color: string;
   borderColor: string;
   fillColor: string;
@@ -615,27 +705,9 @@ function SubClusterCard({
         cursor: "pointer",
         width: "100%",
         transition: "all 0.15s",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        gap: 12,
       }}
     >
-      <div style={{ fontSize: 12, color: hover ? color : "#888" }}>{label}</div>
-      <div
-        style={{
-          fontSize: 11,
-          fontWeight: 700,
-          color,
-          background: `${color}18`,
-          border: `1px solid ${color}44`,
-          borderRadius: 2,
-          padding: "2px 8px",
-          flexShrink: 0,
-        }}
-      >
-        {count}
-      </div>
+      <div style={{ fontSize: 14, color: "#fff" }}>{label}</div>
     </button>
   );
 }

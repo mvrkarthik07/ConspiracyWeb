@@ -70,6 +70,8 @@ function Shell({ children }: { children: React.ReactNode }) {
             <NavLink to="/game/results">RESULTS</NavLink>
             <span style={{ color: "var(--border-default)" }}>|</span>
             <NavLink to="/explore">EXPLORE</NavLink>
+            <span style={{ color: "var(--border-default)" }}>|</span>
+            <NavLink to="/?about=1">ABOUT</NavLink>
           </nav>
         </div>
       </header>

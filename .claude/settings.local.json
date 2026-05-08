@@ -7,7 +7,9 @@
       "Bash(pdftotext -layout \"/Users/prashantagrawal/Downloads/WKW Conspiracy Website Project.pdf\" -)",
       "Bash(/usr/local/bin/node --version)",
       "Bash(brew reinstall:*)",
-      "Bash(pdftotext -layout \"/Users/prashantagrawal/Downloads/WKW Conspiracy Project \\(1\\).pdf\" -)"
+      "Bash(pdftotext -layout \"/Users/prashantagrawal/Downloads/WKW Conspiracy Project \\(1\\).pdf\" -)",
+      "Bash(lsof -ti:3000)",
+      "Bash(lsof -ti:5173)"
     ]
   }
 }

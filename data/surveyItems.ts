@@ -3,6 +3,7 @@ export const THEMES = [
     id: "political" as const,
     label: "Covert Political Engineering by the Powerful",
     short: "POLITICAL ENGINEERING",
+    question: "Are political events genuine, or are they being shaped behind the scenes?",
     description:
       "Some believe those in power will do whatever it takes to remain there, quietly shaping society in their favour behind the scenes, with the public none the wiser.",
     generalBelief:
@@ -16,6 +17,7 @@ export const THEMES = [
     id: "secrets" as const,
     label: "State Secrets and Institutional Cover-Ups",
     short: "STATE SECRETS",
+    question: "Are governments hiding anything from the general public?",
     description:
       "Allegations that institutions hide events, decisions, or data from the public eye — with a vacuum in understanding that some fill with speculative stories.",
     generalBelief:
@@ -29,6 +31,7 @@ export const THEMES = [
     id: "science" as const,
     label: "Hidden Motives Behind Science and Medicine",
     short: "SCIENCE & MEDICINE",
+    question: "How much influence do organisations have over medicine and public health?",
     description:
       "Skepticism about whether unseen motivations drive medical recommendations, and whether powerful organisations influence what the public is told about health.",
     generalBelief:
@@ -42,6 +45,7 @@ export const THEMES = [
     id: "elites" as const,
     label: "Elites Scheming Against the People",
     short: "ELITE SCHEMES",
+    question: "Are the powerful elites secretly controlling our society?",
     description:
       "When economic pressures are felt strongly by certain groups, it creates room for speculation about whether elites or powerful institutions work primarily to benefit themselves.",
     generalBelief:
@@ -55,6 +59,7 @@ export const THEMES = [
     id: "geopolitical" as const,
     label: "Geopolitical Maneuvering & Foreign Influence",
     short: "GEOPOLITICAL",
+    question: "Is Singapore truly in control of its own affairs, or are external powers pulling the strings?",
     description:
       "For an interconnected 'little red dot' surrounded by larger neighbours and global powers, it is not unusual to wonder whether unseen geopolitical forces are influencing domestic affairs.",
     generalBelief:

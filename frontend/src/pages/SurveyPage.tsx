@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { surveyItems, THEMES, type SurveyItem, type ThemeId } from "@/shared/surveyItems";
 import { THEME_COLORS } from "@/shared/themeColors";
 import { scoreCMS12, totalCMS12, interpretCMS12, getPersonalityType } from "@/shared/scoring";
+import { toQuestion } from "@/shared/phrasing";
 import { appendUserSession, createSessionId } from "@/shared/persistence";
 import type { UserSession } from "@/shared/types";
 
@@ -494,8 +495,8 @@ export function SurveyPage() {
 
           {/* Question */}
           <div style={S.cardBody}>
-            <p style={{ fontSize: 16, lineHeight: 1.7, color: "#e5e5e5", margin: "0 0 32px" }}>
-              {activeItem.text}
+            <p style={{ fontSize: 17, lineHeight: 1.65, color: "#fff", margin: "0 0 32px", fontWeight: 600 }}>
+              {toQuestion(activeItem.text)}
             </p>
 
             {/* Scale */}
@@ -696,8 +697,8 @@ export function SurveyPage() {
                       >
                         [{x.value}/7]
                       </span>
-                      <p style={{ fontSize: 12, color: "#aaa", margin: 0, lineHeight: 1.5 }}>
-                        {x.item.text}
+                      <p style={{ fontSize: 13, color: "#fff", margin: 0, lineHeight: 1.5 }}>
+                        {toQuestion(x.item.text)}
                       </p>
                     </div>
                   ))}
