@@ -115,7 +115,7 @@ export const surveyItems: SurveyItem[] = [
     theme: "political",
     themeLabel: "Covert Political Engineering by the Powerful",
     category: "Electoral Manipulation",
-    text: "Spoilt votes in Singapore elections indirectly benefit the PAP by reducing the total valid votes available for opposition parties in closely contested constituencies.",
+    text: "Do spoilt votes in Singapore elections indirectly affect outcomes in closely contested constituencies by reducing the number of valid votes for opposition parties?",
     detail: {
       theorySource: "https://www.reddit.com/r/singapore/comments/1kc7n4i/for_oppo_supporters_stuck_with_mosquito_parties/",
       generalBelief: "Among the many political theories that circulate in Singapore, one centres on the role of spoilt votes in elections. Rather than believing that these votes are directly added to the PAP's total, some suggest that spoiling a vote can indirectly increase the PAP's chances of winning. According to this view, spoilt votes reduce the number of valid votes cast for opposition parties, creating a grey zone that may make the PAP's level of support appear stronger than it actually is.",
@@ -130,7 +130,7 @@ export const surveyItems: SurveyItem[] = [
     theme: "political",
     themeLabel: "Covert Political Engineering by the Powerful",
     category: "Electoral Manipulation",
-    text: "Some opposition parties in Singapore were secretly created or funded by the PAP to split the opposition vote.",
+    text: "Were any opposition parties in Singapore created or funded by the People's Action Party to influence opposition vote distribution?",
     detail: {
       theorySource: "https://www.reddit.com/r/askSingapore/comments/1k7fa52/what_are_some_wild_election_conspiracies_and/",
       generalBelief: "A recurring theory in Singapore suggests that the People's Action Party (PAP) may secretly fund or support certain opposition parties to create the appearance of a competitive political landscape. According to this narrative, a controlled or weakened opposition could make the PAP appear more credible, competent, and stable by comparison, reinforcing public confidence in its leadership while maintaining overall dominance.",
@@ -166,7 +166,7 @@ export const surveyItems: SurveyItem[] = [
     theme: "political",
     themeLabel: "Covert Political Engineering by the Powerful",
     category: "Electoral Manipulation",
-    text: "Chee Soon Juan was planted by the PAP to discredit the Singapore Democratic Party (SDP) from within.",
+    text: "Was Chee Soon Juan planted by the People's Action Party to discredit the Singapore Democratic Party from within?",
     detail: {
       theorySource: "https://www.asiaone.com/singapore/criticise-first-copy-later-chee-soon-juan-accuses-pap-adopting-sdps-policy-ideas",
       generalBelief: "A lesser-known political conspiracy theory in Singapore suggests that Chee Soon Juan was deliberately 'planted' by the People's Action Party (PAP) to weaken or discredit the Singapore Democratic Party (SDP). According to this narrative, his leadership style, legal troubles, and confrontational approach to politics are not coincidental, but instead part of a broader strategy to make the opposition appear less credible or less electable in the eyes of the public.",
@@ -183,7 +183,7 @@ export const surveyItems: SurveyItem[] = [
     theme: "political",
     themeLabel: "Covert Political Engineering by the Powerful",
     category: "PAP Power Plays",
-    text: "Opposition-held wards in Singapore are deliberately given less government funding and resources compared to PAP-held wards — as seen in Hougang and Potong Pasir.",
+    text: "Are opposition-held wards in Singapore given less government funding and resources compared to People's Action Party-held wards?",
     detail: {
       theorySource: "https://geraldgiam.sg/2010/07/opposition-wards-achieve-more-with-less/",
       generalBelief: "A long-standing political belief in Singapore is that constituencies held by the opposition, particularly Hougang and Potong Pasir, were intentionally deprived of resources or upgrades as a way to 'punish' voters for not supporting the People's Action Party (PAP). In this narrative, public housing upgrades, estate improvements, and funding for local projects are seen not just as policy decisions, but as tools that could be used to signal consequences for electoral choices.",
@@ -205,7 +205,7 @@ export const surveyItems: SurveyItem[] = [
     theme: "political",
     themeLabel: "Covert Political Engineering by the Powerful",
     category: "PAP Power Plays",
-    text: "Operation Cold Store was politically motivated to eliminate opposition figures, not genuinely aimed at preventing communism — and was intentionally planned by Lee Kuan Yew to consolidate his rise to power.",
+    text: "Was Operation Cold Store primarily aimed at countering communist influence, or was it also influenced by political considerations involving opposition figures and power consolidation for Lee Kuan Yew?",
     detail: {
       theorySource: "https://www.straitstimes.com/opinion/revisiting-operation-coldstore",
       generalBelief: "Some believe that Operation Coldstore, which involved the arrest of more than 100 individuals under the guise of national security, was not solely about countering communist threats. Instead, these narratives suggest that it was strategically used to weaken or eliminate political opponents, particularly those aligned with left-wing movements, thereby consolidating power for the ruling leadership.",
@@ -227,7 +227,7 @@ export const surveyItems: SurveyItem[] = [
     theme: "political",
     themeLabel: "Covert Political Engineering by the Powerful",
     category: "PAP Power Plays",
-    text: "The Iswaran corruption case resulted in an unusually lenient sentence because of his connections to the PAP and people in power — or because he holds secrets they wish to protect.",
+    text: "Did the Iswaran corruption case result in an unusually lenient sentence due to his connections to the People's Action Party or other factors influencing the outcome?",
     detail: {
       theorySource: "https://www.facebook.com/CriticalSpectator/posts/so-iswaran-was-sentenced-to-12-months-more-than-the-prosecution-wantedlooks-like/1089689959181261/",
       generalBelief: "Following the legal case involving S. Iswaran, some conspiracy theories have emerged suggesting that he received a lighter sentence, or that mitigating factors such as health conditions were exaggerated or fabricated, due to his past connections with the PAP. In more extreme versions, these claims extend to the idea that he may possess sensitive information, which allegedly influenced how his case was handled.",
@@ -249,7 +249,7 @@ export const surveyItems: SurveyItem[] = [
     theme: "political",
     themeLabel: "Covert Political Engineering by the Powerful",
     category: "PAP Power Plays",
-    text: "The Raeesah Khan/Pritam Singh investigation was a calculated political hit job designed to dismantle the Workers' Party.",
+    text: "Was the Raeesah Khan and Pritam Singh investigation a politically motivated effort aimed at weakening the Workers' Party?",
     detail: {
       theorySource: "https://www.channelnewsasia.com/singapore/cop-report-wp-implications-politics-opposition-party-analysis-2492246",
       generalBelief: "A theory circulating in Singapore suggests that the investigations involving Raeesah Khan and Pritam Singh were not solely about alleged procedural or legal breaches, but were strategically orchestrated to weaken the Workers' Party. According to this narrative, the timing, intensity, and publicity of the investigations were designed to damage the party's credibility, disrupt its leadership, and discourage public support.",
@@ -273,7 +273,7 @@ export const surveyItems: SurveyItem[] = [
     theme: "secrets",
     themeLabel: "State Secrets and Institutional Cover-Ups",
     category: "Covered Incidents",
-    text: "Lee Kuan Yew is not actually dead, but has been cryogenically preserved in a secret facility, with plans to revive him in the future.",
+    text: "Is Lee Kuan Yew's body cryogenically preserved in a secret facility, as part of plans to revive him in the future?",
     detail: {
       theorySource: "No clear conspiracy theory source — cryogenics commonly cited as preservation method for deceased celebrities: https://www.cryonicsarchive.org/library/myths-about-cryonics/",
       generalBelief: "A conspiracy theory circulating online claims that Lee Kuan Yew, Singapore's founding Prime Minister, is not actually dead but has been cryogenically frozen in a secret facility, with plans to revive him in the future. Proponents suggest that his death in 2015 was staged publicly, and that Singapore's leadership or elite institutions are preserving him for strategic, scientific, or symbolic purposes.",
@@ -295,7 +295,7 @@ export const surveyItems: SurveyItem[] = [
     theme: "secrets",
     themeLabel: "State Secrets and Institutional Cover-Ups",
     category: "Covered Incidents",
-    text: "Lee Hsien Loong's first wife did not die from natural medical causes; her death under suspicious circumstances may have involved pressures or hidden factors that were never publicly disclosed.",
+    text: "Are there any hidden pressures or factors behind Lee Hsien Loong's first wife's death that were never publicly disclosed?",
     detail: {
       theorySource: "https://www.sammyboy.com/threads/death-of-a-wife-and-the-profound-impact-on-modern-s%E2%80%99pore-history.234029/",
       generalBelief: "A conspiracy theory circulating in Singapore claims that Lee Hsien Loong's (LHL) first wife, Wong Ming Yang, died by suicide under suspicious circumstances rather than from personal or health struggles. Proponents suggest that her death may have involved external pressures or hidden family or political factors that were not publicly disclosed.",
@@ -383,7 +383,7 @@ export const surveyItems: SurveyItem[] = [
     theme: "secrets",
     themeLabel: "State Secrets and Institutional Cover-Ups",
     category: "Covered Incidents",
-    text: "The government covered up the full truth about the escape and fate of Mas Selamat — including claims that he was actually killed rather than allowed to flee.",
+    text: "Did the government cover up the full truth about the escape and fate of Mas Selamat, including claims that he was actually killed rather than allowed to flee?",
     detail: {
       theorySource: "https://singaporelifetimes.blogspot.com/2008/03/conspiracy-theories.html",
       generalBelief: "A circulating claim in Singapore suggests that Mas Selamat, the Jemaah Islamiyah militant who escaped from detention in 2008, was killed while in custody, rather than having genuinely escaped. According to this narrative, authorities allegedly eliminated him to prevent further security risks or to close a sensitive chapter in Singapore's counter-terrorism history.",
@@ -398,14 +398,14 @@ export const surveyItems: SurveyItem[] = [
     theme: "secrets",
     themeLabel: "State Secrets and Institutional Cover-Ups",
     category: "Covered Incidents",
-    text: "The government concealed or downplayed the severity of a pollution incident in western Singapore, denying what residents could clearly detect.",
+    text: "Did the government conceal or downplay the severity of a pollution incident in western Singapore, despite reports from residents?",
   },
   {
     id: "A32b",
     theme: "secrets",
     themeLabel: "State Secrets and Institutional Cover-Ups",
     category: "Covered Incidents",
-    text: "The 1961 Bukit Ho Swee fire was deliberately engineered by the government to clear land and force resettlement into public housing.",
+    text: "Was the 1961 Bukit Ho Swee fire deliberately staged by the government to clear land and force resettlement into public housing?",
     detail: {
       theorySource: "https://en.wikipedia.org/wiki/Bukit_Ho_Swee_fire",
       generalBelief: "A circulating belief in Singapore claims that the 1961 Bukit Ho Swee fire, which destroyed thousands of homes and displaced many residents, was deliberately engineered rather than accidental. Proponents suggest that the fire was orchestrated to accelerate the clearance of squatter settlements and enable government-led urban redevelopment.",
@@ -427,7 +427,7 @@ export const surveyItems: SurveyItem[] = [
     theme: "secrets",
     themeLabel: "State Secrets and Institutional Cover-Ups",
     category: "Covered Incidents",
-    text: "The RVHS student arrest was a scapegoat incident used by the government to send a political message rather than address a genuine security threat.",
+    text: "Was the RVHS student arrest a scapegoat incident used by the government to send a political message?",
     detail: {
       theorySource: "No clear conspiracy theory source",
       generalBelief: "A conspiracy theory circulating in Singapore claims that the arrest and prosecution of a River Valley High School student who killed his schoolmate was a scapegoat incident — i.e., that authorities singled him out to serve as an example or to divert attention from larger systemic issues rather than because of the merits of the case.",
@@ -451,7 +451,7 @@ export const surveyItems: SurveyItem[] = [
     theme: "secrets",
     themeLabel: "State Secrets and Institutional Cover-Ups",
     category: "Institutional Bias",
-    text: "BTO balloting in Singapore secretly gives priority to applicants who are civil servants or grassroots volunteers.",
+    text: "Does BTO balloting in Singapore give priority to applicants who are civil servants or grassroots volunteers?",
     detail: {
       theorySource: "https://www.reddit.com/r/askSingapore/comments/1gn51np/would_working_in_a_government_sector_affect_bto/",
       generalBelief: "A common belief claims that civil servants in Singapore are given preferential treatment when it comes to Housing & Development Board (HDB) Build-To-Order (BTO) flats. According to this narrative, government employees are able to secure units more easily or receive priority in the ballot process, giving them an advantage over ordinary citizens.",
@@ -466,7 +466,7 @@ export const surveyItems: SurveyItem[] = [
     theme: "secrets",
     themeLabel: "State Secrets and Institutional Cover-Ups",
     category: "Institutional Bias",
-    text: "The vaping ban in Singapore is not about public health — it was introduced to protect cigarette tax revenue, which would be threatened by cheaper alternatives.",
+    text: "Was Singapore's vaping ban driven primarily by public health concerns, or were there other factors such as cigarette tax revenue considerations?",
     detail: {
       theorySource: "https://www.nus.edu.sg/uhc/articles/details/debunking-law-related-mistruths-regarding-vaping",
       generalBelief: "A theory surrounding Singapore's vaping regulations suggests that the ban on e-cigarettes is not primarily motivated by public health concerns, but rather by the government's interest in protecting cigarette tax revenue. According to this view, allowing vaping as a legal alternative could reduce cigarette consumption, lowering tax income from traditional tobacco products.",
@@ -481,7 +481,7 @@ export const surveyItems: SurveyItem[] = [
     theme: "secrets",
     themeLabel: "State Secrets and Institutional Cover-Ups",
     category: "Institutional Bias",
-    text: "Unemployment rates and happiness index scores published by the government are deliberately inflated or manipulated to maintain a positive national image.",
+    text: "Are unemployment rates and happiness index scores published by the government accurate, or could they be influenced to present a more positive national image?",
     detail: {
       theorySource: "No clear conspiracy theory source",
       generalBelief: "A conspiracy theory circulating in Singapore claims that official unemployment rates, national Happiness Index scores, and air quality data are manipulated or suppressed. According to this narrative, authorities allegedly adjust these figures to present a more favourable image of the country's economic stability, societal well-being, or environmental performance, particularly during periods of public concern or policy scrutiny.",
@@ -647,7 +647,7 @@ export const surveyItems: SurveyItem[] = [
     theme: "elites",
     themeLabel: "Elites Scheming Against the People",
     category: "CPF & Finances",
-    text: "The CPF minimum sum keeps increasing because the government does not have enough money to allow everyone to withdraw their full CPF at once.",
+    text: "Could the Singapore government have increased the CPF withdrawal criteria due to public funds mismanagement?",
   },
   {
     id: "A12",

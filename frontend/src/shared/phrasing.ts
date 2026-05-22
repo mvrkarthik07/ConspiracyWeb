@@ -13,6 +13,23 @@ const LOWERCASEABLE_LEADERS = new Set([
   "These", "Those", "Our", "His", "Her", "Their", "Its", "There",
 ]);
 
+/**
+ * Maps internal sub-cluster (category) keys to the question form used for
+ * display. Keys not present here fall back to the raw category label.
+ */
+export const SUB_CLUSTER_QUESTIONS: Record<string, string> = {
+  "Electoral Manipulation": "Could elections be influenced in unseen ways?",
+  "PAP Power Plays":
+    "Is there a power play involved in the People's Action Party's political dominance?",
+  "Covered Incidents": "Are there covered-up incidents the public is unaware of?",
+  "Institutional Bias":
+    "Is there institutional bias in how public decisions are made or outcomes are shaped?",
+};
+
+export function subClusterLabel(category: string): string {
+  return SUB_CLUSTER_QUESTIONS[category] ?? category;
+}
+
 export function toQuestion(text: string): string {
   if (!text) return text;
   // Strip trailing punctuation

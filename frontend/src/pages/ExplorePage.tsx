@@ -3,7 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { surveyItems, THEMES, type SurveyItem, type ThemeId } from "@/shared/surveyItems";
 import { THEME_COLORS } from "@/shared/themeColors";
 import { getAgreeRateForItem } from "@/shared/persistence";
-import { toQuestion } from "@/shared/phrasing";
+import { toQuestion, subClusterLabel } from "@/shared/phrasing";
 import { fetchArticles } from "@/shared/articles";
 import type { ArticleResult } from "@/shared/types";
 
@@ -205,7 +205,7 @@ export function ExplorePage() {
               return (
                 <SubClusterCard
                   key={cat}
-                  label={cat}
+                  label={subClusterLabel(cat)}
                   color={cfg?.text ?? "#fff"}
                   borderColor={cfg?.border ?? "#fff"}
                   fillColor={cfg?.fill ?? "transparent"}
@@ -230,7 +230,7 @@ export function ExplorePage() {
           parts={[
             { label: "EXPLORE", href: "/explore" },
             { label: themeMeta?.short ?? themeParam!, href: `/explore?theme=${themeParam}` },
-            { label: category!, href: `/explore?theme=${themeParam}&category=${encodeURIComponent(category!)}` },
+            { label: subClusterLabel(category!), href: `/explore?theme=${themeParam}&category=${encodeURIComponent(category!)}` },
             { label: framingMeta?.label ?? framing! },
           ]}
         />
@@ -253,7 +253,7 @@ export function ExplorePage() {
         >
           <div>
             <div style={{ fontSize: 10, color: cfg?.text, letterSpacing: "0.12em" }}>
-              {themeMeta?.short}  ›  {category}
+              {themeMeta?.short}  ›  {subClusterLabel(category!)}
             </div>
             <div style={{ fontSize: 14, color: "#ddd", marginTop: 4 }}>
               {framingMeta?.label}
